@@ -1,0 +1,12 @@
+" let g:netrw_dirhistmax  =10
+" let g:netrw_dirhistcnt =9
+" let g:netrw_dirhist_9='/Users/wenhaowu/.config/nvim/plug-config'
+" let g:netrw_dirhist_8='/Users/wenhaowu/.config/nvim/vim-plug'
+" let g:netrw_dirhist_7='/Users/wenhaowu/.config/nvim'
+" let g:netrw_dirhist_6='/Users/wenhaowu/.config/nvim/vim-plug'
+" let g:netrw_dirhist_5='/Users/wenhaowu/.config/nvim/plug-config'
+" let g:netrw_dirhist_4='/Users/wenhaowu/.config/nvim'
+" let g:netrw_dirhist_3='/Users/wenhaowu/.config/nvim/themes'
+" let g:netrw_dirhist_2='/Users/wenhaowu/.config/nvim/plug-config'
+" let g:netrw_dirhist_1='/Users/wenhaowu/.config/nvim/keys'
+" let g:netrw_dirhist_0='/Users/wenhaowu/.config/nvim/autoload'

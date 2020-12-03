@@ -1,0 +1,149 @@
+# maybe copied from https://www.youtube.com/watch?v=EGBEIb2DgtQ
+# or here: https://github.com/rafi/.config/blob/master/lf/lfrc
+# interpreter for shell commands (needs to be POSIX compatible)
+set shell zsh
+
+
+# Basic Settings
+set drawbox on
+set ignorecase on
+
+# Preview script
+set previewer "~/.config/lf/scope.sh"
+
+# set '-eu' options for shell commands
+# These options are used to have safer shell commands. Option '-e' is used to
+# exit on error and option '-u' is used to give error for unset variables.
+# Option '-f' disables pathname expansion which can be useful when $f, $fs, and
+# $fx variables contain names with '*' or '?' characters. However, this option
+# is used selectively within individual commands as it can be limiting at
+# times.
+set shellopts '-eu'
+
+# set internal field separator (IFS) to "\n" for shell commands
+# This is useful to automatically split file names in $fs and $fx properly
+# since default file separator used in these variables (i.e. 'filesep' option)
+# is newline. You need to consider the values of these options and create your
+# commands accordingly.
+set ifs "\n"
+
+# leave some space at the top and the bottom of the screen
+set scrolloff 10
+
+# use enter for shell commands
+# map <enter> shell
+
+# execute current file (must be executable)
+map x $$f
+map X !$f
+
+# dedicated keys for file opener actions
+# map o &mimeopen $f
+# map O $mimeopen --ask $f
+
+# define a custom 'open' command
+# This command is called when current file is not a directory. You may want to
+# use either file extensions and/or mime types here. Below uses an editor for
+# text files and a file opener for the rest.
+cmd open ${{
+    case $(file --mime-type $f -b) in
+        inode/x-empty) $EDITOR $fx;;
+        text/*) $EDITOR $fx;;
+        video/*) nohup mpv $fx > /dev/null & ;;
+        application/pdf) nohup zathura $f > /dev/null & ;;
+        *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
+    esac
+}}
+
+# define a custom 'rename' command without prompt for overwrite
+cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
+map r push :rename<space>
+
+# make sure trash folder exists
+# %mkdir -p ~/.trash
+
+# touch file and create directories
+cmd mkfile %[ -n "${1}" ] && touch ${@} || echo "Argument needed"
+cmd mkdir %[ -n "${1}" ] && mkdir -p ${@} || echo "Argument needed"
+
+# move current file or selected files to trash folder
+# (also see 'man mv' for backup/overwrite options)
+cmd trash %set -f; mv $fx ~/.trash
+
+# define a custom 'delete' command
+# cmd delete ${{
+#     set -f
+#     printf "$fx\n"
+#     printf "delete?[y/n]"
+#     read ans
+#     [ $ans = "y" ] && rm -rf $fx
+# }}
+
+# use '<delete>' key for either 'trash' or 'delete' command
+# map <delete> trash
+# map <delete> delete
+
+# extract the current file with the right command
+# (xkcd link: https://xkcd.com/1168/)
+cmd extract ${{
+    set -f
+    case $f in
+        *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf $f;;
+        *.tar.gz|*.tgz) tar xzvf $f;;
+        *.tar.xz|*.txz) tar xJvf $f;;
+        *.zip) unzip $f;;
+        *.rar) unrar x $f;;
+        *.7z) 7z x $f;;
+    esac
+}}
+
+# compress current file or selected files with tar and gunzip
+cmd tar ${{
+    set -f
+    mkdir $1
+    cp -r $fx $1
+    tar czf $1.tar.gz $1
+    rm -rf $1
+}}
+
+# compress current file or selected files with zip
+cmd zip ${{
+    set -f
+    mkdir $1
+    cp -r $fx $1
+    zip -r $1.zip $1
+    rm -rf $1
+}}
+
+
+# Remove defaults
+map d
+map m
+map c
+map <c-l>
+map <c-r>
+map o
+map u
+map H
+map t
+
+# Basic mapping
+map a push :mkfile<space>
+map A push :mkdir<space>
+map d delete
+map D trash
+map m cut
+map H set hidden!
+map o open
+map <enter> open
+map R reload
+map <c-l> clear
+map <c-r> redraw
+# map u $view "$f"
+
+map gc cd ~/.config
+map gd cd ~/downloads
+map gp cd ~/projects 
+map gn cd ~/.config/nvim
+map ~ cd ~
+

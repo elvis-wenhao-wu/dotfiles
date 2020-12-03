@@ -1,0 +1,28 @@
+{
+    // For documentation on doHover in coc
+    "coc.preferences.hoverTarget": "float", 
+
+    // coc extension enable for each file type
+    // "coc.source.json.filetypes": ["json"],
+    // "coc.source.python.filetypes": ["python"],
+    // "coc.source.html.filetypes": ["html", "css", "javascript"],
+    // "coc.source.css.filetypes": ["html", "css", "javascript"],
+    // "coc.source.tsserver.filetypes": ["html", "css", "javascript"],
+    // "coc.source.vimlsp.filetypes": ["vim"],
+
+    // python config
+    "python.linting.enabled": false,
+    "python.linting.pylintEnabled": false,
+
+    // html
+    "html.autoClosingTags": true,
+
+    // explorer
+    // "explorer.width": 30,
+    // "explorer.icon.enableNerdfont": true,
+    // "explorer.previewAction.onHover": false,
+    // "explorer.keyMappings.global": { 
+    //     "<cr>": ["expandable?", "expand", "open"],
+    //     "v": "open:vsplit"
+    // }
+}
