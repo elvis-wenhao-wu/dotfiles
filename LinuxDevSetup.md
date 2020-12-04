@@ -2,6 +2,10 @@
 
 ## Git 
 Check and install the latest [git](https://git-scm.com/download/linux)
+Note: 
+    * solve the error [error: RPC failed; curl transfer closed with outstanding read data remaining](https://stackoverflow.com/questions/38618885/error-rpc-failed-curl-transfer-closed-with-outstanding-read-data-remaining)
+        increment buffer size by `git config --global http.postBuffer 524288000`
+
 
 ## Shell
 * zshell 
