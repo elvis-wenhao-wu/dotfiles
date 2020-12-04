@@ -13,20 +13,23 @@ Check and install the latest [git](https://git-scm.com/download/linux)
                 Under this method, the font will be automatically activated
         * oh-my-zsh
             * [Manual Installation](https://github.com/ohmyzsh/ohmyzsh#manual-installation)
-        * gruvbox theme 
+        * gruvbox theme (optional) 
             * Add gruvbox.zsh-theme to oh-my-zsh theme folder
                 `cp dotfiles/zsh/gruvbox.zsh-theme ~/.oh-my-zsh/custom/themes`
                 This is the modified version of [gruvbox.zsh-theme](https://github.com/sbugzu/gruvbox-zsh)
                 modified from commit e7eada5c213e40a0453e354e7ccbbeecfa69d5ac
             Note: This is not enough to make terminal appears like gruvbox. If you do want so, please install gruvbox theme for terminal
             However, this is enough in ssh mode (if you set gruvbox for alacritty and zsh on macos like me)
-    * Install Extensions
-        * zsh-autosuggestions
+    * Install Extensions (optional)
+        * zsh-autosuggestions (pretty slow)
             * [Install through oh-my-zsh](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh)
+            * Boost performance by enabling async mode and disabling automatic widget re-binding (optional)
+                `mv dotfiles/zsh/internals.zsh ~/.oh-my-zsh/custom/`
 * zshrc
     * Copy template zshrc from oh-my-zsh to $HOME (optional) 
         `cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc`
-    * Copy .zshrc prepared until conda (left until met in later procedures)
+    * Move .zshrc to the home folder
+        `mv dotfiles/zsh/.zshrc ~/.zshrc`
     
     Reference: https://medium.com/@thecaffeinedev/customize-your-terminal-oh-my-zsh-on-ubuntu-18-04-lts-a9b11b63f2  
 
