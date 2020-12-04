@@ -15,6 +15,7 @@ Check and install the latest [git](https://git-scm.com/download/linux)
             * [Manual Installation](https://github.com/ohmyzsh/ohmyzsh#manual-installation)
         * gruvbox theme 
             * Add gruvbox.zsh-theme to oh-my-zsh theme folder
+                `cp dotfiles/zsh/gruvbox.zsh-theme ~/.oh-my-zsh/custom/themes`
                 This is the modified version of [gruvbox.zsh-theme](https://github.com/sbugzu/gruvbox-zsh)
                 modified from commit e7eada5c213e40a0453e354e7ccbbeecfa69d5ac
             Note: This is not enough to make terminal appears like gruvbox. If you do want so, please install gruvbox theme for terminal
@@ -24,8 +25,10 @@ Check and install the latest [git](https://git-scm.com/download/linux)
             * [Install through oh-my-zsh](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh)
 * zshrc
     * Copy template zshrc from oh-my-zsh to $HOME (optional) 
+        `cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc`
     * Copy .zshrc prepared until conda (left until met in later procedures)
-Reference: https://medium.com/@thecaffeinedev/customize-your-terminal-oh-my-zsh-on-ubuntu-18-04-lts-a9b11b63f2  
+    
+    Reference: https://medium.com/@thecaffeinedev/customize-your-terminal-oh-my-zsh-on-ubuntu-18-04-lts-a9b11b63f2  
 
 ## Programming
 * Install conda 
