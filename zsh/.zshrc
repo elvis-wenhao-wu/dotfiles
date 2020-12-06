@@ -4,5 +4,5 @@
 [ -f $HOME/.config/zsh/conda.zsh ] && source $HOME/.config/zsh/conda.zsh
 [ -f $HOME/.config/zsh/fzf.zsh ] && source $HOME/.config/zsh/fzf.zsh
 [ -f $HOME/.config/zsh/lf.zsh ] && source $HOME/.config/zsh/lf.zsh
-[ -f $HOME/.config/zsh/tmux.zsh ] && source $HOME/.config/zsh/tmux.zsh
+# [ -f $HOME/.config/zsh/tmux.zsh ] && source $HOME/.config/zsh/tmux.zsh
 
