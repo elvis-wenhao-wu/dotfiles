@@ -28,9 +28,9 @@ Config
 
     * [Installation guide from oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
 - Arch: `pacman -S zsh`
-        
+  
 - Debian/Ubuntu: `apt install zsh`
-    
+  
 * oh-my-zsh
 
     * Basics 
@@ -149,6 +149,12 @@ Config
     * neovim
 
         * [neovim git repo](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+
+        * Install by yay
+
+            `yay -S neovim-nightly-git`
+
+        * Install by builds
 
             ```
         git clone https://aur.archlinux.org/neovim-nightly.git
