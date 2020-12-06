@@ -91,9 +91,8 @@ tnoremap <Esc> <C-\><C-n>
 " nnoremap <silent> cpp :let @" = expand("%")<CR>
 
 " Change current split window to tab buffer 
-" nnoremap <silent> <leader>T <C-w>T
+nnoremap <silent> <leader>T <C-w>T
 
-" NEOVIM health programming environment setup
 " python3 mapping
 let g:loaded_python_provider = 0
 let g:python3_host_prog = '/usr/local/Caskroom/miniconda/base/envs/primary/bin/python'

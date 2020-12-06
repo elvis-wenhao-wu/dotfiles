@@ -15,9 +15,7 @@ set mouse=a                             " Enable your mouse
 set splitbelow                          " Horizontal splits will automatically be below
 set splitright                          " Vertical splits will automatically be to the right
 set t_Co=256                            " Support 256 colors
-" let $NVIM_TUI_ENABLE_TRUE_COLOR=1     " True color, don't know what the fuck this guy is doing
 set conceallevel=0                      " So that I can see `` in markdown files
-set smartcase
 set tabstop=4                           " Insert 2 spaces for a tab
 set shiftwidth=4                        " Change the number of space characters inserted for indentation
 set smarttab                            " Makes tabbing smarter will realize you have 2 vs 4
@@ -45,10 +43,10 @@ set timeoutlen=100                       " By default timeoutlen is 1000 ms
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 set incsearch
 set hlsearch
-" set folding method
-set foldmethod=indent
-set foldlevel=1
+set foldmethod=manual                     " set folding method
 " set termguicolors                       " To display web icon for lua tree
+set smartcase
+set ignorecase
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let g:syntastic_check_on_open = 0

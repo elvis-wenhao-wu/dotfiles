@@ -29,9 +29,9 @@ source $HOME/.config/nvim/plug-config/far.vim
 
 " TEXT PROCESSING
 " vim-commentary
-source $HOME/.config/nvim/plug-config/vim-commentary.vim
+source $HOME/.config/nvim/plug-config/commentary.vim
 " vim-surround
-source $HOME/.config/nvim/plug-config/vim-surround.vim
+source $HOME/.config/nvim/plug-config/surround.vim
 " quick-scope 
 source $HOME/.config/nvim/plug-config/quick-scope.vim
 
@@ -39,7 +39,7 @@ source $HOME/.config/nvim/plug-config/quick-scope.vim
 " auto-pairs
 source $HOME/.config/nvim/plug-config/auto-pairs.vim
 " close tags
-source $HOME/.config/nvim/plug-config/vim-closetag.vim
+source $HOME/.config/nvim/plug-config/closetag.vim
 " Autocomplete html tags
 source $HOME/.config/nvim/plug-config/tagalong.vim
 " Bracey
@@ -57,7 +57,7 @@ source $HOME/.config/nvim/plug-config/neoterm.vim
 
 " STATUSLINE & TABLINE
 " Buftabline
-source $HOME/.config/nvim/plug-config/vim-buftabline.vim
+source $HOME/.config/nvim/plug-config/buftabline.vim
 " Statusline
 source $HOME/.config/nvim/plug-config/statusline.vim
 " source $HOME/.config/nvim/themes/lightline.vim

@@ -4,7 +4,7 @@ let g:zoomwintab_remap=0
 " If enabled, don't hide the tab bar
 let g:zoomwintab_hidetabbar=0
 " Enable remap <leader>z to ZoomWinTabToggle command
-" nnoremap <leader>z :ZoomWinTabToggle<CR>
+nnoremap <leader>z :ZoomWinTabToggle<CR>
 
 " The following is for the simple solution given for sidestepping the original zoomwin command
 " Note this is not the official zoom win plugin configuration

@@ -45,9 +45,10 @@ let g:which_key_max_size = 0
 
 " SINGLE mappings
 let g:which_key_map.c = 'start coc'
+let g:which_key_map.d = 'show diff'
 let g:which_key_map.u = 'uppercase'
-let g:which_key_map['T'] = [ '<C-w>T', 'window to tab' ]
-let g:which_key_map['z'] = [ ':ZoomWinTabToggle<CR>', 'zoom vim' ]
+let g:which_key_map.T = 'window to tab'
+let g:which_key_map.z = 'zoom vim'
 let g:which_key_map['?'] = [ ':Commands', 'commands' ]
 " let g:which_key_map['/'] = [ ':Commentary', 'comment' ]
 " let g:which_key_map['o'] = [ '<Plug>LfEdit', 'Lf' ]
@@ -61,7 +62,6 @@ let g:which_key_map['?'] = [ ':Commands', 'commands' ]
 " a is for actions
 let g:which_key_map.a = {
       \ 'name' : '+actions' ,
-      \ 'd' : [':DiffChangesDiffToggle'  , 'show diff'],
       \ 'l' : [':Bracey'                 , 'start live server'],
       \ 'L' : [':BraceyStop'             , 'stop live server'],
       \ }
@@ -93,6 +93,30 @@ let g:which_key_map.f = {
       \ 't' : [':Filetypes'             , 'types (files)'],
       \ }
 
+" F is for formatting
+let g:which_key_map.F = {
+      \ 'name' : '+formatting' ,
+      \ 't' : [':Format'  , 'format codes'] ,
+      \ 'o' : [':Fold'  , 'fold codes']
+      \ }
+
+" S is for session
+nnoremap <leader>Sa :Obsession ~/.config/nvimSessions/
+nnoremap <leader>Sd :Obsession!<CR>
+nnoremap <leader>So :source ~/.config/nvimSessions/
+nnoremap <leader>Ss :Obsession<CR>
+nnoremap <leader>SS :source ~/.config/nvimSessions/nvimConfig.vim<CR>
+nnoremap <leader>Sk :source ~/.config/nvimSessions/nvimKeys.vim<CR>
+let g:which_key_map.S = {
+      \ 'name' : '+sessions' ,
+      \ 'a' : 'add workspace',
+      \ 'd' : 'delete workspace', 
+      \ 'k' : 'configure neovim keys',
+      \ 'o' : 'open workspace',
+      \ 's' : 'stop/resume workspace',
+      \ 'S' : 'configure neovim settings',
+      \ }
+
 " t is for terminal
 let g:which_key_map.t = {
       \ 'name' : '+terminal' ,
@@ -118,7 +142,7 @@ vmap s <Nop>
 nnoremap <silent> s :silent <c-u> :silent WhichKey 's'<CR>
 vnoremap <silent> s :silent <c-u> :silent WhichKeyVisual 's'<CR>
 let g:surround_key_map = {}
-let g:surround_key_map['a'] = [ '<Plug>Ysurround', 'add' ]
-let g:surround_key_map['c'] = [ '<Plug>Csurround', 'change' ]
-let g:surround_key_map['d'] = [ '<Plug>Dsurround', 'delete' ]
+let g:surround_key_map.a = 'add'
+let g:surround_key_map.c = 'change'
+let g:surround_key_map.d = 'delete'
 let g:surround_key_map.s = 'block'
