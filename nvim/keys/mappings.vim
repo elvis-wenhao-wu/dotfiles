@@ -27,6 +27,7 @@ nnoremap <leader>u gUiw
 
 " ESCAPE
 inoremap jk <Esc>
+" tnoremap <Esc> jk
 
 " <TAB>: completion.
 " copied from https://gist.github.com/benawad/b768f5a5bbd92c8baabd363b7e79786f
@@ -90,8 +91,13 @@ tnoremap <Esc> <C-\><C-n>
 " copy path, leader key, esc key and clipboard
 " nnoremap <silent> cpp :let @" = expand("%")<CR>
 
-" Change current split window to tab buffer 
+" Change current split window to another layout
+" layout: tab
 nnoremap <silent> <leader>T <C-w>T
+" layout: vertical right
+nnoremap <silent> <leader>V <C-w>L
+" layout: horizontal below
+nnoremap <silent> <leader>H <C-w>J
 
 " python3 mapping
 let g:loaded_python_provider = 0

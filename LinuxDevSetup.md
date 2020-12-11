@@ -257,6 +257,10 @@ Config
 
     * Coc install extensions (coc-python, coc-vimlsp, coc-html, coc-css, coc-tsserver)
 
+        * If `Jedi module not found issue occur`, conda update and specify jedi path according to this [issue](https://github.com/neoclide/coc-python/issues/40)
+
+        * If you couldn't set linter off, run :CocCommand and choose set linter to the linter you want
+
     * Configure bracey (require npm)
 
         * Open bracey.vim and following the instructions in the comments

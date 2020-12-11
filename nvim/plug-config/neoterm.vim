@@ -15,11 +15,16 @@ let g:neoterm_repl_python = ['clear', 'ipython']
 " nnoremap tn :Tnew<cr>
 " cnoreabbrev tt Tnew
 
-" nnoremap tc :<c-u>exec v:count.'Tclear'<cr>
-" nnoremap tc :Tclear<cr>
-" vnoremap ts :TREPLSendSelection<cr>
-" vnoremap ts :TREPLSendSelection<cr>'>j
-" nnoremap tt :TREPLSendLine<cr>
-
-" nnoremap tw :Tclose!<CR>
-" nnoremap tg :Ttoggle<CR>
+" Which key
+nnoremap <leader>tc :Tclear<cr>
+nnoremap <leader>tf :TREPLSendFile<cr>
+nnoremap <leader>tg :Ttoggle<cr>
+nnoremap <leader>tl :TREPLSendLine<cr>
+vnoremap <leader>tl :TREPLSendLine<cr>
+nnoremap <leader>tn :Tnew<cr>
+nnoremap <leader>tv :vertical Topen resize=40<cr>
+vnoremap <leader>ts :TREPLSendSelection<cr>'>j"
+nnoremap <leader>tt :TREPLSendLine<cr>
+vnoremap <leader>tt :TREPLSendLine<cr>
+nnoremap <leader>tw :Tclose!<cr>
+vnoremap <leader>tw :Tclose!<cr>

@@ -47,7 +47,9 @@ let g:which_key_max_size = 0
 let g:which_key_map.c = 'start coc'
 let g:which_key_map.d = 'show diff'
 let g:which_key_map.u = 'uppercase'
-let g:which_key_map.T = 'window to tab'
+let g:which_key_map.H = 'pivot below'
+let g:which_key_map.T = 'pivot in tab'
+let g:which_key_map.V = 'pivot right'
 let g:which_key_map.z = 'zoom vim'
 let g:which_key_map['?'] = [ ':Commands', 'commands' ]
 " let g:which_key_map['/'] = [ ':Commentary', 'comment' ]
@@ -120,13 +122,17 @@ let g:which_key_map.S = {
 " t is for terminal
 let g:which_key_map.t = {
       \ 'name' : '+terminal' ,
-      \ 'c' : [':Tclear<cr>'                    , 'clear'],
-      \ 'g' : [':Ttoggle<cr>'                   , 'toggle'],
-      \ 'n' : [':Tnew<cr>'                      , 'new'],
-      \ 's' : [":TREPLSendSelection<cr>'>j"     , 'selection'],
-      \ 't' : [':TREPLSendLine<cr>'             , 'line'],
-      \ 'w' : [':Tclose!<cr>'                   , 'close']
+      \ 'c' : 'clear',
+      \ 'f' : 'file',
+      \ 'g' : 'toggle',
+      \ 'l' : 'line',
+      \ 'n' : 'new (below)',
+      \ 's' : 'selection',
+      \ 't' : 'line',
+      \ 'w' : 'close', 
+      \ 'v' : 'new (vertical)'
       \ }
+      " \ 's' : [":TREPLSendSelection'>j"         , 'selection'],
 
 " let g:which_key_map.s = {
 "       \ 'name' : '+surround' ,
