@@ -15,16 +15,16 @@
 
 " s key mapping
 
-" Add
-nmap sa <Plug>Ysurround
-xmap sa <Plug>VSurround
-" Delete
+" " Add
+" nmap sa <Plug>Ysurround
+" xmap sa <Plug>VSurround
+" " Delete
+" " nmap sd <Plug>Dsurround
+" " Change
+" nmap sc <Plug>Csurround
+" " xmap sc <Plug>CSurround
 " nmap sd <Plug>Dsurround
-" Change
-nmap sc <Plug>Csurround
-" xmap sc <Plug>CSurround
-nmap sd <Plug>Dsurround
-" Entire Line (Add)
-nmap ss <Plug>Yssurround
-" Visual
-xmap ss <Plug>VSurround
+" " Entire Line (Add)
+" nmap sb <Plug>Yssurround
+" " Visual
+" xmap sb <Plug>VSurround

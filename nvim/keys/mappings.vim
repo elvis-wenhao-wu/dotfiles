@@ -62,6 +62,8 @@ nnoremap <silent> <S-TAB> :bprevious<CR>
 nnoremap <silent> <C-q> :bdelete!<CR>
 " CTRL-S save file
 nnoremap <silent> <C-s> :w<CR>
+vnoremap <silent> <C-s> <ESC>:w<CR>
+inoremap <silent> <C-s> <ESC>:w<CR>
 " CTRL-TAB in general mode will move to next tab
 " nnoremap <silent> <leader>n :tabnext<CR>
 " CTRL-SHIFT-TAB will go back

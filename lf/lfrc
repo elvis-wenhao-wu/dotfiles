@@ -141,9 +141,10 @@ map <c-l> clear
 map <c-r> redraw
 # map u $view "$f"
 
-map gc cd ~/.config
-map gd cd ~/Downloads
-map gp cd ~/Projects 
-map gn cd ~/.config/nvim
+map gc cd ~/.config/
+map gd cd ~/Downloads/
+map gi cd ~/Library/Mobile Documents/com~apple~CloudDocs/
+map gp cd ~/Projects/
+map gn cd ~/.config/nvim/
 map ~ cd ~
 

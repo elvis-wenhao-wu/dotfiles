@@ -149,6 +149,7 @@ nnoremap <silent> s :silent <c-u> :silent WhichKey 's'<CR>
 vnoremap <silent> s :silent <c-u> :silent WhichKeyVisual 's'<CR>
 let g:surround_key_map = {}
 let g:surround_key_map.a = 'add'
+let g:surround_key_map.b = 'block'
 let g:surround_key_map.c = 'change'
 let g:surround_key_map.d = 'delete'
-let g:surround_key_map.s = 'block'
+

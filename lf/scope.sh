@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Most part of this guide is from ranger scope.sh...
+# ...while other parts are from https://github.com/BrodieRobertson/dotfiles/blob/master/config/lf/preview
+# Basic settings
 set -C -f -u 
 IFS=$'\n'
 
@@ -82,9 +85,15 @@ handle_extension() {
             jq --color-output . "${FILE_PATH}" && exit 5
             python3 -m json.tool -- "${FILE_PATH}" && exit 5
             ;;
-        
+
+        ## CSV
         csv)
             bat --style=numbers --color=always "${FILE_PATH}" && exit 5
+            exit 1;;
+
+        ## Others
+        *) 
+            bat --style=plain --color=always "${FILE_PATH}" && exit 5
             exit 1;;
     esac
 }

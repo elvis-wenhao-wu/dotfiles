@@ -11,14 +11,16 @@
     // "coc.source.vimlsp.filetypes": ["vim"],
 
     // python config
-    "python.setInterpreter": "/usr/local/Caskroom/miniconda/base/envs/primary/bin/python3",
+    "python.setInterpreter": "/usr/local/Caskroom/miniconda/base/envs/primary/bin/python",
+    "python.pythonPath": "/usr/local/Caskroom/miniconda/base/envs/primary/bin/python",
+    // "python.condaPath": "/usr/local/Caskroom/miniconda/base/condabin/conda",
     // "python.linting.enabled": false,
     // "python.linting.pylintEnabled": false,
     // "python.setLinter": "mypy",
     // "python.linting.mypyEnabled": true,
     // "python.linting.mypyPath": "/usr/local/Caskroom/miniconda/base/envs/primary/bin/mypy", 
     // "python.jediEnabled": false,
-    "python.jediPath": "/usr/local/Caskroom/miniconda/base/envs/primary/lib/python3.8/site-packages",
+    "python.jediPath": "/usr/local/Caskroom/miniconda/base/envs/primary/lib/python3.9/site-packages",
     // "python.analysis.diagnosticEnabled": false,
 
     // html

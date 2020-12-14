@@ -8,7 +8,19 @@ let g:neoterm_size=10
 " https://github.com/kassio/neoterm/issues/295
 " another option is to make neoterm_repl_enable_ipython_paste_magic=1
 let g:neoterm_bracketed_paste=1
-let g:neoterm_repl_python = ['clear', 'ipython']
+" let g:neoterm_repl_python=['clear', 'ipython']
+
+" After each send, the terminal is automatically scrolled to the bottom
+let g:neoterm_autoscroll=1
+
+" Open repl directly instead of using terminal as intermediary
+" let g:neoterm_direct_open_repl=1
+
+" Don't keep terminal running in the background when close
+" let g:neoterm_keep_term_open=0
+
+" Terminal open in insert mode
+" let g:neoterm_autoinsert=1
 
 " 3<leader>ts will set neoterm-3 as python REPL
 " nnoremap tt :<c-u>exec 'TREPLSetTerm ' . v:count<cr>
@@ -17,7 +29,7 @@ let g:neoterm_repl_python = ['clear', 'ipython']
 
 " Which key
 nnoremap <leader>tc :Tclear<cr>
-nnoremap <leader>tf :TREPLSendFile<cr>
+nnoremap <leader>tf :TREPLSendFile<cr> 
 nnoremap <leader>tg :Ttoggle<cr>
 nnoremap <leader>tl :TREPLSendLine<cr>
 vnoremap <leader>tl :TREPLSendLine<cr>
