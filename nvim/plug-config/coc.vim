@@ -15,6 +15,7 @@ nmap <silent> gr <Plug>(coc-referencesj
 
 " Use <F2> to show documentation in preview window.
 " Reason why not use <c-u> is because either <c-u> or <c-b> is kept for window movement
+nmap <silent> <C-Space> :call <SID>show_documentation()<CR>
 nnoremap <silent> <F2> :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)

@@ -15,6 +15,9 @@ nnoremap <C-l> <C-w>l
 let g:mapleader = "\<Space>"
 nnoremap <Space> <Nop>
 
+" File manipulation
+" cnoreabbrev ee e %:h
+
 " TEXT PROCESSING
 " Indentation
 vnoremap < <gv

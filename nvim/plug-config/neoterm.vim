@@ -29,13 +29,13 @@ let g:neoterm_autoscroll=1
 
 " Which key
 nnoremap <leader>tc :Tclear<cr>
-nnoremap <leader>tf :TREPLSendFile<cr> 
+nnoremap <leader>tf :TREPLSendFile<cr>
 nnoremap <leader>tg :Ttoggle<cr>
 nnoremap <leader>tl :TREPLSendLine<cr>
 vnoremap <leader>tl :TREPLSendLine<cr>
 nnoremap <leader>tn :Tnew<cr>
 nnoremap <leader>tv :vertical Topen resize=40<cr>
-vnoremap <leader>ts :TREPLSendSelection<cr>'>j"
+vnoremap <leader>ts :TREPLSendSelection<cr>
 nnoremap <leader>tt :TREPLSendLine<cr>
 vnoremap <leader>tt :TREPLSendLine<cr>
 nnoremap <leader>tw :Tclose!<cr>

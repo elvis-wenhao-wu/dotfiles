@@ -4,5 +4,5 @@ LFCD="${HOME}/.config/lf/lfcd.sh"                                #  pre-built bi
 if [ -f "$LFCD" ]; then
     source "$LFCD"
 fi
-bindkey -s '^o' 'lfcd\n'
+bindkey -s '^n' 'lfcd\n'
 

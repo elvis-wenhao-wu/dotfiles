@@ -143,8 +143,9 @@ map <c-r> redraw
 
 map gc cd ~/.config/
 map gd cd ~/Downloads/
-map gi cd ~/Library/Mobile Documents/com~apple~CloudDocs/
-map gp cd ~/Projects/
+map gi cd '~/Library/Mobile Documents/com~apple~CloudDocs/'
+map gP cd '~/Library/Mobile Documents/com~apple~CloudDocs/Learnings/PythonLearning/'
+map gp cd ~/Projects/python/
 map gn cd ~/.config/nvim/
 map ~ cd ~
 
