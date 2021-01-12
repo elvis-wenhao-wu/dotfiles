@@ -285,7 +285,9 @@ key_bindings:
   - { key: Right,       mods: Command,          chars: "\x1b[F",    mode: ~AppCursor } # End
   # see example alacritty.yml. keys are from https://docs.rs/glutin/*/glutin/event/enum.VirtualKeyCode.html#variants
   # and this: https://www.windmill.co.uk/ascii-control-codes.html
-  - { key: S,           mods: Command,          mode: ~Vi,          chars: "\x13"    } # ctrl+s (mapped to save in vi)
+  # ctrl+s (mapped to save in vi)
+  - { key: S,           mods: Command,          mode: ~Vi,          chars: "\x13"    } 
+  - { key: A,           mods: Command,          mode: ~Vi,          chars: "\x01"    } 
 
   # Vi Mode
   - { key: Y,           mode: Vi,               action: Copy             }
@@ -295,6 +297,11 @@ key_bindings:
   - { key: L,           mode: Vi,               action: Right            }
   - { key: Slash,       mods: Control,          mode: ~Vi,          chars: "++"      }
   - { key: L,           mods: Control,          mode: ~Vi,          chars: "\x0c"    }
+  # see how to copy paste in vim in this post using command + c on macos
+  # https://github.com/neovim/neovim/issues/5052 (ahuigo comment on 24 May 2018)
+  # - { key: C,           mods: Command,          mode: ~Vi,          chars: "\"+y"             }
+  # - { key: C,           mods: Command,          mode: ~Vi,          action: Copy             }
+  # - { key: Space,  mods: Shift|Control, mode: ~Search,    action: ToggleViMode            }
 
 debug:
   render_timer: false

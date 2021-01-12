@@ -82,7 +82,7 @@ handle_extension() {
 
         ## JSON
         json|ipynb)
-            jq --color-output . "${FILE_PATH}" && exit 5
+            bat --color=always --style=plain "${FILE_PATH}" && exit 5
             python3 -m json.tool -- "${FILE_PATH}" && exit 5
             ;;
 

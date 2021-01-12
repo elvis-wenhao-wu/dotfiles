@@ -67,6 +67,10 @@ nnoremap <silent> <C-q> :bdelete!<CR>
 nnoremap <silent> <C-s> :w<CR>
 vnoremap <silent> <C-s> <ESC>:w<CR>
 inoremap <silent> <C-s> <ESC>:w<CR>
+" CTRL-A select all
+nnoremap <silent> <C-a> ggVG
+vnoremap <silent> <C-a> <ESC>ggVG
+inoremap <silent> <C-a> <ESC>ggVG
 " CTRL-TAB in general mode will move to next tab
 " nnoremap <silent> <leader>n :tabnext<CR>
 " CTRL-SHIFT-TAB will go back

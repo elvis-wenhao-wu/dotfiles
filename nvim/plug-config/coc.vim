@@ -11,7 +11,7 @@ inoremap <silent><expr> <c-b> coc#refresh()
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-referencesj
+nmap <silent> gr <Plug>(coc-references)
 
 " Use <F2> to show documentation in preview window.
 " Reason why not use <c-u> is because either <c-u> or <c-b> is kept for window movement
