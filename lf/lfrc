@@ -3,7 +3,6 @@
 # interpreter for shell commands (needs to be POSIX compatible)
 set shell zsh
 
-
 # Basic Settings
 set drawbox on
 set ignorecase on

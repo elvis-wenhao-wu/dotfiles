@@ -110,6 +110,12 @@ Config
     Make the above stuff work in your shell
 
     ```zsh
+    # source zsh to make the above active (make sure to save your zsh file)
+    cp ~/.zshrc ~/.zshrc.orig
+    rm ~/.zshrc
+    touch ~/.zshrc
+    # make directory
+    mkdir -p ~/.config/zsh/
     # prompt file, making a space between lines in your shell
     cp dotfiles/zsh/prompt.zsh ~/.config/zsh/prompt.zsh
     # shell configuratoin file, making oh-my-zsh, theme and its extensions activate
@@ -128,19 +134,30 @@ Config
     * MacOS: `curl https://repo.anaconda.com/miniconda/Miniconda3-py39_4.9.2-MacOSX-x86_64.sh -o miniconda3.sh`
     * Linux: `curl https://repo.anaconda.com/miniconda/Miniconda3-py39_4.9.2-Linux-x86_64.sh -o miniconda3.sh`
 
-    Specify conda location to `$HOME/.conda` (purpose: hide conda location)
+    ```zsh
+    # Install miniconda3
+    chmod +x ~/miniconda3.sh
+    ~/miniconda3.sh
+    ```
+
+    Specify conda location to `$HOME/.conda` (purpose: hide conda location) & make sure running conda init & remove any conda init script in your zshrc. Normally, this shouldn't be a problem cause the init script will directly go into bash (which is the system factory default shell) but it's better to check
 
     ```zsh
     # set conda forge as the default channel
     cp dotfiles/conda/.condarc ~/
     # Copy conda init script to conda zsh (make sure the conda.zsh only includes the conda activation script)
-    cp ~/.bashrc ~/.config/conda.zsh
+    cp ~/.bashrc ~/.config/zsh/conda.zsh
+    vim ~/.config/conda.zsh # delete everything else except conda init script
     # source the conda environment
     echo '[ -f $HOME/.config/zsh/conda.zsh ] && source $HOME/.config/zsh/conda.zsh' >> ~/.zshrc
+    source ~/.zshrc
     # update the conda version
     conda activate base; conda update -n base -c defaults conda
+    conda clean --all # cleanup mess
     # Create an environment with a specific version of Python
     conda create --name primary python=3.9.5
+    conda activate primary # check if the environment works
+    conda config --show channels # check your channels (conda-forge is on top, which is a better channel I think)
     ```
 
 * Python (optional)
@@ -154,11 +171,48 @@ Config
     I don't very much use Node. Although we should install it as what we do to conda, the latest version should satisfy our most daily use, i.e. as a dependency for other applications.
 
     * MacOS: `brew install node` (latest node and npm, the package manager for node, like pip for python) - Note that: this method does not install nvm, node version manager, like conda for python
-    * [Arch](https://wiki.archlinux.org/index.php/Node.js_): `sudo pacman -S nodejs npm` - Latest
-    * [Debian](https://github.com/nodesource/distributions): see the link
-    * [Fedora](https://nodejs.org/tr/download/package-manager/#centos-fedora-and-red-hat-enterprise-linux): see the link
 
-* [Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+    * [Arch](https://wiki.archlinux.org/index.php/Node.js_): `sudo pacman -S nodejs npm` - Latest
+
+    * [Debian](https://github.com/nodesource/distributions): see the link
+
+    * [Fedora](https://nodejs.org/tr/download/package-manager/#centos-fedora-and-red-hat-enterprise-linux): 
+
+        Reference this [post](https://linuxconfig.org/how-to-install-node-js-on-redhat-8-linux) for other module options
+
+        ```zsh
+        # list the modules
+        dnf module list nodejs 
+        # I chose the latest version
+        sudo dnf module install nodejs:16/minimal 
+        # check if the module is successfully installed
+        sudo dnf module list nodejs 
+        # To upgrade, just install a new module, e.g. 
+        # sudo dnf module install nodejs:<nextversion>/minimal
+        ```
+
+* [Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim) - Nightly Version
+
+    * MacOS:
+
+        ```zsh
+        brew install --HEAD luajit
+        brew install --HEAD neovim
+        ```
+
+        Dependencies
+
+        ```zsh
+        # python support
+        conda activate primary # my conda environment
+        conda install pynvim # conda python support for neovim
+        # node support
+        npm i -g neovim
+        # neovim remote
+        pip3 install neovim-remote
+        # Note: For Neovim Remote, if conda env is not used to pip3 here, this will install `nvr` to `~/.local/bin` so you will need to add the following to zshrc
+        # `export PATH=$HOME/.local/bin:$PATH`
+        ```
 
     * [Arch](https://github.com/neovim/neovim/wiki/Installing-Neovim#arch-linux): 
 
@@ -169,56 +223,101 @@ Config
         Dependencies
 
         ```zsh
-        pacman -S python-pynvim
+        # clipboard support
+        sudo pacman -S xsel
+        # python support
+        conda activate primary # my conda environment
+        pacman -S python-pynvim # system python support for neovim
+        conda install pynvim # conda python support for neovim
+        # node support
+        npm i -g neovim
+        # neovim remote
+        pip3 install neovim-remote
+        # Note: For Neovim Remote, if conda env is not used to pip3 here, this will install `nvr` to `~/.local/bin` so you will need to add the following to zshrc
+        # `export PATH=$HOME/.local/bin:$PATH`
         ```
 
     * Fedora: 
 
         ```zsh
+        # copr is like PPA in Ubuntu or brew tap in MacOS
+        # you have to enable a repo and then you can install it
         dnf copr enable agriffis/neovim-nightly
+        dnf install neovim
         ```
 
         Dependencies
 
         ```zsh
-        dnf install -y neovim python3-neovim
+        # clipboard support
+        dnf install xsel
+        # python support
+        conda activate primary # my conda environment
+        dnf install python3-neovim # system python support for neovim
+        conda install pynvim # conda python support for neovim
+        # node support
+        npm i -g neovim
+        # neovim remote
+        pip3 install neovim-remote
+        # Note: For Neovim Remote, if conda env is not used to pip3 here, this will install `nvr` to `~/.local/bin` so you will need to add the following to zshrc
+        # `export PATH=$HOME/.local/bin:$PATH`	
         ```
 
+    Note: temporarily there is no direct way to yank text in remote linux server to local macos. [Reference](https://stackoverflow.com/questions/10694516/vim-copy-mac-over-ssh).
 
+    [Another Neovim Reference](https://github.com/ChristianChiarulli/nvim)
 
+* [bat](https://github.com/sharkdp/bat#installation) 
 
+    Better alternative to Unix `cat` (also for `lf` & `fzf` preview)
 
-[Another Neovim Reference](https://github.com/ChristianChiarulli/nvim)
+    * [MacOS](https://github.com/sharkdp/bat#on-macos-or-linux-via-homebrew): `brew install bat`
 
-### Nvim
+    * [Arch](https://github.com/sharkdp/bat#on-arch-linux): `sudo pacman -S bat`
+    * [Fedora](https://github.com/sharkdp/bat#on-fedora): `dnf install bat`
 
-* bat (for lf & fzf preview)
+* [fd](https://github.com/sharkdp/fd)
 
-    * [bat git repo](https://github.com/sharkdp/bat#installation)
+    Better alternative to Unix `find` (also for lf & fzf preview)
 
-        `sudo pacman -S bat`
+    * [MacOS](https://github.com/sharkdp/fd#on-macos): `brew install fd`
 
-* fd (for lf & fzf preview)
+    * [Arch](https://github.com/sharkdp/fd#on-arch-linux): `sudo pacman -S fd`
+    * [Fedora](https://github.com/sharkdp/fd#on-fedora): `dnf install fd-find`
 
-    * [fd git repo](https://github.com/sharkdp/fd)
+* [lf](https://github.com/gokcehan/lf)
 
-        `sudo pacman -S fd`
+    Terminal File Manager
 
-* lf terminal file manager
+    * [MacOS](https://github.com/gokcehan/lf/wiki/Packages#homebrew)
 
-    * Refer to [lf git repo](https://github.com/gokcehan/lf) for installation method
+        ```zsh
+        brew install lf
+        ```
+
+    * [Arch](https://aur.archlinux.org/packages/lf/)
 
         ```
-    git clone https://aur.archlinux.org/lf.git
+        git clone https://aur.archlinux.org/lf.git
         cd lf
-    makepkg -si
+        makepkg -si
         ```
 
-    * Copy lf configuration prepared 
+    * [Fedora](https://copr.fedorainfracloud.org/coprs/provessor/golang-github-gokcehan-lf/)
 
-        `cp -r dotfiles/lf ~/.config`
+        ```zsh
+        dnf copr enable provessor/golang-github-gokcehan-lf
+        dnf install lf
+        ```
 
-        `cp dotfiles/zsh/lf.zsh ~/.config/zsh/`
+    Copy lf configuration prepared 
+
+    ```zsh
+    cp -r dotfiles/lf ~/.config
+    cp dotfiles/zsh/lf.zsh ~/.config/zsh/
+    ```
+
+    
 
 * fzf
 
@@ -232,27 +331,7 @@ Config
 
     * change keybindings and completion sourcing files in zshrc
 
-* python & node support
-
-    * `pip3 install pynvim` or `conda install pynvim`
-
-    * `sudo npm i -g neovim`
-
-* neovim remote
-
-    * `pip3 install neovim-remote`
-
-    Note: If conda env is not used to pip3 here, this will install `nvr` to `~/.local/bin` so you will need to add the following to zshrc
-
-    - `export PATH=$HOME/.local/bin:$PATH`	
-
-* clipboard support
-
-    * xsel
     
-        `sudo pacman -S xsel`
-    
-    Note: temporarily there is no direct way to yank text in remote linux server to local macos. [Reference](https://stackoverflow.com/questions/10694516/vim-copy-mac-over-ssh).
 
 * Other zsh configurations
 
