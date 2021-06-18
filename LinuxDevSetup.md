@@ -4,12 +4,14 @@
 
 - `mkdir ~/.config/zsh`
 
-## Git 
+
+
+## Git
 
 Check and install the latest [git](https://git-scm.com/download/linux)
 
 - Arch: `pacman -S git`
-
+- Fedora: `dnf install git`
 - Debian/Ubuntu: `apt-get install git`
 
 Config
@@ -22,207 +24,235 @@ Config
 - `git clone https://github.com/elvis-wenhao-wu/dotfiles.git`
 
 
+
 ## Shell
 
-* zshell 
+* [zshell](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
 
-    * [Installation guide from oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
-- Arch: `pacman -S zsh`
-  
-- Debian/Ubuntu: `apt install zsh`
-  
-* oh-my-zsh
+    Better shell
 
-    * Basics 
+    * MacOS: System Default
 
-        * MesloLGS NF font (in [nerd-fonts](https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts) family)
+    * Arch: `pacman -S zsh`
+    * Debian/Ubuntu: `apt install zsh`
+    * Fedora: `dnf install zsh`
 
-            * Install through [Ad Hoc Curl Download](https://github.com/ryanoasis/nerd-fonts#option-6-ad-hoc-curl-download)
+    Make it your default shell: `chsh -s $(which zsh)`
 
-                - Linux: 
-                  
-                  ```
-                  mkdir -p ~/.local/share/fonts
-                  cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
-                  ```
+    Log out and log back in again to use your new default shell
 
-            Note: Under this method, the font will be automatically activated
+    Test that it worked with `echo $SHELL`. Expected result: `/bin/zsh` or similar.
 
-        * oh-my-zsh
+    Test with `$SHELL --version`. Expected result: 'zsh 5.4.2' or similar
+* [MesloLGS NF font](https://github.com/ryanoasis/nerd-fonts) 
 
-            * [Manual Installation](https://github.com/ohmyzsh/ohmyzsh#manual-installation)
+    Display special characters in oh-my-zsh
 
-                ```
-            git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
-                cp ~/.zshrc ~/.zshrc.orig
-            cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
-                chsh -s $(which zsh)
-            source ~/.zshrc
-                ```
+    * [MacOS](https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts): 
 
-        * gruvbox theme (optional) 
+        ``````zsh
+    brew tap homebrew/cask-fonts
+        brew install --cask font-hack-nerd-font
+        cd ~/Library/Fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+        ``````
+    
+    * [Linux](https://github.com/ryanoasis/nerd-fonts#option-6-ad-hoc-curl-download): 
+    
+    Note: Under this method, the font will be automatically activated
+    
+    ```zsh
+        mkdir -p ~/.local/share/fonts
+    cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+        ```
 
-            * Add gruvbox.zsh-theme to oh-my-zsh theme folder
+* [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh#manual-installation)
 
-                `cp dotfiles/zsh/gruvbox.zsh-theme ~/.oh-my-zsh/custom/themes`
+    Zsh shell configuration framework
 
-            Note: 
+    ```zsh
+    # Clone the repo
+    git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+    # Optionally, backup your existing ~/.zshrc file
+    cp ~/.zshrc ~/.zshrc.orig
+    # Create a new zsh configuration file
+    cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+    # Change your default shell (if you haven't done so in the previous steps)
+    chsh -s $(which zsh)
+    # Initialize your new zsh configuration
+    source ~/.zshrc
+    ```
 
-            * This is the modified version of [gruvbox.zsh-theme](https://github.com/sbugzu/gruvbox-zsh), modified from commit e7eada5c213e40a0453e354e7ccbbeecfa69d5ac
+* [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh)
 
-            * This is not enough to make terminal appears like gruvbox. If you do want so, please install gruvbox theme for terminal
+    oh-my-zsh extension
 
-            * However, this is enough in ssh mode (if you set gruvbox for alacritty and zsh on macos like me)
+    ```zsh
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    ```
 
-    * Install Extensions (optional)
+* [Gruvbox Theme](https://github.com/sbugzu/gruvbox-zsh) (optional)
 
-        * zsh-autosuggestions (pretty slow)
+    Color theme for zsh (I have modified that a bit. If you mind using mine, just go get the original one)
 
-            * [Install through oh-my-zsh](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh)
+    ```zsh
+    # Add gruvbox.zsh-theme to oh-my-zsh theme folder
+    cp dotfiles/zsh/gruvbox.zsh-theme ~/.oh-my-zsh/custom/themes
+    ```
 
-                ```
-         git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-                ```
+    Note: 
 
-            - Add the plugin to the list of plugins for Oh My Zsh to load (inside ~/.zshrc)
+    * This is the modified version of [gruvbox.zsh-theme](https://github.com/sbugzu/gruvbox-zsh), modified from commit `e7eada5c213e40a0453e354e7ccbbeecfa69d5ac`
 
-                ```
-        plugins=(zsh-autosuggestions)
-                ```
+    * This is not enough to make terminal appears like gruvbox. If you do want so, please install gruvbox theme for terminal (e.g. alacritty or iTerm2). However, this is enough in ssh mode (if you set gruvbox for alacritty and zsh on macos like me)
 
-            - Boost performance by enabling async mode and disabling automatic widget re-binding (optional)
+* zsh configuration file (`~/.zshrc`)
 
-                `mv dotfiles/zsh/internals.zsh ~/.oh-my-zsh/custom/`
+    Make the above stuff work in your shell
 
-* zshrc
+    ```zsh
+    # prompt file, making a space between lines in your shell
+    cp dotfiles/zsh/prompt.zsh ~/.config/zsh/prompt.zsh
+    # shell configuratoin file, making oh-my-zsh, theme and its extensions activate
+    cp dotfiles/zsh/ohmyz.zsh ~/.config/zsh/ohmyz.zsh
+    # source the above file in your configuration file
+    echo '[ -f $HOME/.config/zsh/prompt.zsh ] && source $HOME/.config/zsh/prompt.zsh' >> ~/.zshrc
+    echo '[ -f $HOME/.config/zsh/ohmyz.zsh ] && source $HOME/.config/zsh/ohmyz.zsh' >> ~/.zshrc
+    ```
 
-    * Move .zshrc to the home folder
 
-        `mv dotfiles/zsh/.zshrc ~/.zshrc`
 
-    Reference: [customize your terminal oh-my-zsh on ubuntu](https://medium.com/@thecaffeinedev/customize-your-terminal-oh-my-zsh-on-ubuntu-18-04-lts-a9b11b63f2)
+## Apps
 
-## Programming
+* [Miniconda](https://docs.conda.io/en/latest/miniconda.html#linux-installers) 
 
-* Install conda 
+    * MacOS: `curl https://repo.anaconda.com/miniconda/Miniconda3-py39_4.9.2-MacOSX-x86_64.sh -o miniconda3.sh`
+    * Linux: `curl https://repo.anaconda.com/miniconda/Miniconda3-py39_4.9.2-Linux-x86_64.sh -o miniconda3.sh`
 
-    * [Linux installers](https://docs.conda.io/en/latest/miniconda.html#linux-installers)
+    Specify conda location to `$HOME/.conda` (purpose: hide conda location)
 
-        * Download
+    ```zsh
+    # set conda forge as the default channel
+    cp dotfiles/conda/.condarc ~/
+    # Copy conda init script to conda zsh (make sure the conda.zsh only includes the conda activation script)
+    cp ~/.bashrc ~/.config/conda.zsh
+    # source the conda environment
+    echo '[ -f $HOME/.config/zsh/conda.zsh ] && source $HOME/.config/zsh/conda.zsh' >> ~/.zshrc
+    # update the conda version
+    conda activate base; conda update -n base -c defaults conda
+    # Create an environment with a specific version of Python
+    conda create --name primary python=3.9.5
+    ```
 
-            `curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -o miniconda3.sh`
+* Python (optional)
 
-        * Specify conda location to $HOME/.conda (purpose: hide conda location)
+    * MacOS: `brew install python3` (avoid messing the packages with system default)
 
-        * Copy conda init script from .bashrc to .zshrc (purpose: conda can be found in zsh)
+    * Linux: Linux normally shipped with python3 as default. Update it with package manager, e.g. `dnf upgrade python`
 
-        * Copy .condarc prepared (purpose: deactivate conda at shell startup) 
+* Node (optional)
 
-            `cp dotfiles/conda/.condarc ~/`
+    I don't very much use Node. Although we should install it as what we do to conda, the latest version should satisfy our most daily use, i.e. as a dependency for other applications.
 
-    * Create an environment with a specific version of Python 
+    * MacOS: `brew install node` (latest node and npm, the package manager for node, like pip for python) - Note that: this method does not install nvm, node version manager, like conda for python
+    * [Arch](https://wiki.archlinux.org/index.php/Node.js_): `sudo pacman -S nodejs npm` - Latest
+    * [Debian](https://github.com/nodesource/distributions): see the link
+    * [Fedora](https://nodejs.org/tr/download/package-manager/#centos-fedora-and-red-hat-enterprise-linux): see the link
 
-        e.g. `conda create --name primary python=3.9.0`
+* [Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim)
 
-* Install python (optional)
+    * [Arch](https://github.com/neovim/neovim/wiki/Installing-Neovim#arch-linux): 
 
-    Linux normally shipped with python3 as default. Update it with package manager.
+        ```zsh
+        yay -S neovim-nightly-git
+        ```
 
-* Install node
+        Dependencies
 
-    - Arch
+        ```zsh
+        pacman -S python-pynvim
+        ```
 
-        [Arch wiki](https://wiki.archlinux.org/index.php/Node.js_)
-        
-        `sudo pacman -S nodejs-lts-fermium npm`
+    * Fedora: 
 
-        Note: separate install for node and npm
+        ```zsh
+        dnf copr enable agriffis/neovim-nightly
+        ```
 
-    - Debian
+        Dependencies
 
-        [Nodesource](https://github.com/nodesource/distributions) installation of node and npm 
+        ```zsh
+        dnf install -y neovim python3-neovim
+        ```
 
-## Nvim
 
-* [Prerequisite](https://github.com/ChristianChiarulli/nvim)
 
-    * neovim
 
-        * [neovim git repo](https://github.com/neovim/neovim/wiki/Installing-Neovim)
 
-        * Install by yay
+[Another Neovim Reference](https://github.com/ChristianChiarulli/nvim)
 
-            `yay -S neovim-nightly-git`
+### Nvim
 
-        * Install by builds
+* bat (for lf & fzf preview)
 
-            ```
-        git clone https://aur.archlinux.org/neovim-nightly.git
-            cd neovim-nightly
-        makepkg -si
-            ```
+    * [bat git repo](https://github.com/sharkdp/bat#installation)
 
-    * bat (for lf & fzf preview)
+        `sudo pacman -S bat`
 
-        * [bat git repo](https://github.com/sharkdp/bat#installation)
+* fd (for lf & fzf preview)
 
-            `sudo pacman -S bat`
+    * [fd git repo](https://github.com/sharkdp/fd)
 
-    * fd (for lf & fzf preview)
+        `sudo pacman -S fd`
 
-        * [fd git repo](https://github.com/sharkdp/fd)
+* lf terminal file manager
 
-            `sudo pacman -S fd`
+    * Refer to [lf git repo](https://github.com/gokcehan/lf) for installation method
 
-    * lf terminal file manager
+        ```
+    git clone https://aur.archlinux.org/lf.git
+        cd lf
+    makepkg -si
+        ```
 
-        * Refer to [lf git repo](https://github.com/gokcehan/lf) for installation method
+    * Copy lf configuration prepared 
 
-            ```
-        git clone https://aur.archlinux.org/lf.git
-            cd lf
-        makepkg -si
-            ```
+        `cp -r dotfiles/lf ~/.config`
 
-        * Copy lf configuration prepared 
+        `cp dotfiles/zsh/lf.zsh ~/.config/zsh/`
 
-            `cp -r dotfiles/lf ~/.config`
+* fzf
 
-            `cp dotfiles/zsh/lf.zsh ~/.config/zsh/`
+    * [fzf git repo](https://github.com/junegunn/fzf#fuzzy-completion-for-bash-and-zsh)
 
-    * fzf
+        `sudo pacman -S fzf`
 
-        * [fzf git repo](https://github.com/junegunn/fzf#fuzzy-completion-for-bash-and-zsh)
+    * Copy fzf configuration prepared
 
-            `sudo pacman -S fzf`
+        `cp dotfiles/zsh/fzf.zsh ~/.config/zsh/`
 
-        * Copy fzf configuration prepared
+    * change keybindings and completion sourcing files in zshrc
 
-            `cp dotfiles/zsh/fzf.zsh ~/.config/zsh/`
+* python & node support
 
-        * change keybindings and completion sourcing files in zshrc
+    * `pip3 install pynvim` or `conda install pynvim`
 
-    * python & node support
+    * `sudo npm i -g neovim`
 
-        * `pip3 install pynvim` or `conda install pynvim`
+* neovim remote
 
-        * `sudo npm i -g neovim`
+    * `pip3 install neovim-remote`
 
-    * neovim remote
+    Note: If conda env is not used to pip3 here, this will install `nvr` to `~/.local/bin` so you will need to add the following to zshrc
 
-        * `pip3 install neovim-remote`
+    - `export PATH=$HOME/.local/bin:$PATH`	
 
-        Note: If conda env is not used to pip3 here, this will install `nvr` to `~/.local/bin` so you will need to add the following to zshrc
+* clipboard support
 
-        - `export PATH=$HOME/.local/bin:$PATH`	
-
-    * clipboard support
-
-        * xsel
-        
-            `sudo pacman -S xsel`
-        
-        Note: temporarily there is no direct way to yank text in remote linux server to local macos. [Reference](https://stackoverflow.com/questions/10694516/vim-copy-mac-over-ssh).
+    * xsel
+    
+        `sudo pacman -S xsel`
+    
+    Note: temporarily there is no direct way to yank text in remote linux server to local macos. [Reference](https://stackoverflow.com/questions/10694516/vim-copy-mac-over-ssh).
 
 * Other zsh configurations
 
