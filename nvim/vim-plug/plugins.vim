@@ -44,7 +44,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " FILE EXPLORE
     " Lf integration (lf.vim dependency: bclose)
     Plug 'rbgrouleff/bclose.vim'
-    Plug 'ptzz/lf.vim'
+    " Plug 'ptzz/lf.vim'
     Plug 'thezeroalpha/vim-lf'
     " Rename
     Plug 'danro/rename.vim'

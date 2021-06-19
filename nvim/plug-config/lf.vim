@@ -6,3 +6,6 @@ let g:lf_map_keys = 0
 
 " thezeroalpha/vim-lf
 nnoremap <C-n> :LF %:p edit<CR>
+
+
+
