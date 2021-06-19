@@ -31,7 +31,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " FIND & SEARCH
     " FZF
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
+    " Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
+    Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release/rpc' }
+    Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release/remote', 'do': ':UpdateRemotePlugins' }
     Plug 'junegunn/fzf.vim'
     " Find and replace
     Plug 'ChristianChiarulli/far.vim'

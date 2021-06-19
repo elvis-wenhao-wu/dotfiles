@@ -13,7 +13,7 @@ window:
 
   dynamic_padding: false
 
-  decorations: full
+  decorations: none
 
   startup_mode: Windowed
 
@@ -90,7 +90,7 @@ bell:
   duration: 0
   color: '#ffffff'
 
-background_opacity: 1.0
+background_opacity: 0.75
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -121,16 +121,6 @@ mouse:
   triple_click: { threshold: 300 }
 
   hide_when_typing: false
-
-  url:
-    # Default:
-    #   - (macOS) open
-    #   - (Linux/BSD) xdg-open
-    #   - (Windows) explorer   
-    #launcher:
-    #  program: open
-
-    modifiers: None
 
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
