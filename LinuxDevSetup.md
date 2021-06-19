@@ -382,6 +382,23 @@ Config
 
 ## Neovim Configuration
 
+* [vim-plug](https://github.com/junegunn/vim-plug#neovim)
+
+    A minimalist Vim plugin manager
+
+    ```zsh
+    # Copy my configurations
+    cp -r dotfiles/nvim ~/.config/nvim
+    # Download
+    sh -c 'curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    # Install the plugins provided in the plugin list
+    nvim ~/.config/nvim/vim-plug/plugins.vim # ignore the theme not in folder error, this will be fixed after you install the theme
+    ```
+
+
+
+
+
 * PlugInstall nvim plugins
 
     * Copy plugins folder prepared
