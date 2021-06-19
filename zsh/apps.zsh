@@ -9,9 +9,9 @@ bindkey -s '^n' 'lfcd\n'
 # FZF
 # shortcuts
 source /usr/local/opt/fzf/shell/key-bindings.zsh
-# /usr/share/fzf/shell/key-bindings.zsh # for linux
+# source /usr/share/fzf/shell/key-bindings.zsh # for linux
 source /usr/local/opt/fzf/shell/completion.zsh
-# source /etc/bash_completion.d/fzf
+# source /etc/bash_completion.d/fzf # for linux
 
 export FZF_DEFAULT_OPTS="
 --no-mouse --height 50% -1 --reverse --multi --inline-info 
