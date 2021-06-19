@@ -111,6 +111,8 @@ nnoremap <silent> <leader>H <C-w>J
 " python3 mapping
 let g:loaded_python_provider = 0
 let g:python3_host_prog = '/usr/local/Caskroom/miniconda/base/envs/primary/bin/python'
+" Uncomment the followings for linux
+" let g:python3_host_prog = "$HOME/.conda/envs/primary/bin/python"
 
 " node mapping
 let g:node_host_prog = '/usr/local/bin/neovim-node-host'

@@ -395,7 +395,18 @@ Config
     nvim ~/.config/nvim/vim-plug/plugins.vim # ignore the theme not in folder error, this will be fixed after you install the theme
     ```
 
+* other neovim configs
 
+    ```zsh
+    # python and node source
+    vim ~/.config/nvim/keys/mappings.vim # uncomment out linux source of python, comment out the mac version
+    # coc settings
+    vim ~/.config/nvim/coc-settings.json # uncomment out linux source of python, comment out the mac version
+    ```
+
+    
+
+    
 
 
 
