@@ -329,7 +329,7 @@ Config
     source ~/.zshrc
     ```
 
-    change keybindings at the very bottom in `~/.config/lf/lfrc` if you like
+    Change keybindings at the very bottom in `~/.config/lf/lfrc` if you like
 
 * [fzf](https://github.com/junegunn/fzf#fuzzy-completion-for-bash-and-zsh)
 
@@ -345,28 +345,42 @@ Config
 
     * [Fedora](https://github.com/junegunn/fzf#using-homebrew): `sudo dnf install fzf`
 
-    Copy `fzf` configuration prepared 
+    (Linux Only) Copy `fzf` configuration prepared 
 
     ```zsh
+    # Clean up mess
+    cd /usr/share/fzf
+    cp -r shell/ shell.orig/
+    rm -r shell/
+    git init
+    # Track repo
+    git remote add origin -f https://github.com/junegunn/fzf
+    # Enable the tree check feature
+    git config core.sparseCheckout true
+    # Add the name of the subdirectory into .git (the hidden git directory, controlling everything)
+    echo 'shell' >> .git/info/sparse-checkout
+    # Download with pull, not clone
+    git pull origin master
     ```
 
+    Change the config in zsh
+
+    ```zsh
+    vim ~/.config/zsh/apps.zsh # uncomment out all fzf configs (uncomment out the first few lines depending on macos or linux)
+    source ~/.zshrc
+    ```
+
+    Reference about [git submodule](https://en.terminalroot.com.br/how-to-clone-only-a-subdirectory-with-git-or-svn/)
+
+* [ripgrep](https://github.com/BurntSushi/ripgrep)
+
+    * MacOS: `brew install ripgrep`
+    * Arch: `pacman -S ripgrep`
+    * Fedora: `sudo dnf install ripgrep`
+
     
 
-    change keybindings and completion sourcing files in zshrc
-
-    
-
-* Other zsh configurations
-
-    `cp dotfiles/zsh/exports.zsh ~/.config/zsh/`
-
-    `cp dotfiles/zsh/prompt.zsh ~/.config/zsh/`
-
-    `cp dotfiles/zsh/tmux.zsh ~/.config/zsh/`
-
-    comment out tmux in `~/.zshrc`
-
-    Change neovim path in `~/.config/zsh/exports.zsh`
+## Neovim Configuration
 
 * PlugInstall nvim plugins
 

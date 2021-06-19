@@ -53,7 +53,7 @@ source $HOME/.config/nvim/plug-config/fzf.vim
 source $HOME/.config/nvim/plug-config/vim-tmux-navigator.vim
 source $HOME/.config/nvim/plug-config/zoomwintab.vim
 " Terminal
-source $HOME/.config/nvim/plug-config/neoterm.vim
+" source $HOME/.config/nvim/plug-config/neoterm.vim
 
 " STATUSLINE & TABLINE
 " Buftabline
@@ -77,3 +77,4 @@ colorscheme gruvbox
 " colorscheme base16-default-dark
 " source $HOME/.config/nvim/themes/nord.vim
 " lua require('colorbuddy').colorscheme('gruvbuddy')
+

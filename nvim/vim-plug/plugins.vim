@@ -49,6 +49,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Session
     Plug 'tpope/vim-obsession'
     " Plug 'haorenW1025/floatLf-nvim'
+    " Plug 'voldikss/vim-floaterm'
     " Plug 'preservim/nerdtree'
     " Plug 'kyazdani42/nvim-web-devicons'
     " Plug 'kyazdani42/nvim-tree.lua'
@@ -78,7 +79,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Vim window zoom
     Plug 'troydm/zoomwintab.vim'
     " TERMINAL
-    Plug 'kassio/neoterm'
+    " Plug 'kassio/neoterm' " Currently disable it for the matter of speed 
     " Plug 'voldikss/vim-floaterm'
 
     " STATUSLINE AND TABLINE
