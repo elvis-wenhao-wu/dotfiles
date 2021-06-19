@@ -263,6 +263,15 @@ Config
         # `export PATH=$HOME/.local/bin:$PATH`	
         ```
 
+    Update the zsh configuration file
+
+    ```zsh
+    cp ~/dotfiles/zsh/usrsp.zsh ~/.config/zsh/
+    echo '[ -f $HOME/.config/zsh/usrsp.zsh ] && source $HOME/.config/zsh/usrsp.zsh' >> ~/.zshrc
+    vim ~/.zshrc # change your neovim location
+    source ~/.zshrc
+    ```
+
     Note: temporarily there is no direct way to yank text in remote linux server to local macos. [Reference](https://stackoverflow.com/questions/10694516/vim-copy-mac-over-ssh).
 
     [Another Neovim Reference](https://github.com/ChristianChiarulli/nvim)
@@ -310,26 +319,40 @@ Config
         dnf install lf
         ```
 
-    Copy lf configuration prepared 
+    Copy `lf` configuration prepared 
 
     ```zsh
-    cp -r dotfiles/lf ~/.config
-    cp dotfiles/zsh/lf.zsh ~/.config/zsh/
+    cp -r ~/dotfiles/lf ~/.config
+    cp ~/dotfiles/zsh/apps.zsh ~/.config/zsh/
+    echo '[ -f $HOME/.config/zsh/apps.zsh ] && source $HOME/.config/zsh/apps.zsh' >> ~/.zshrc
+    vim ~/.config/zsh/apps.zsh # comment out other apps at the moment
+    source ~/.zshrc
+    ```
+
+    change keybindings at the very bottom in `~/.config/lf/lfrc` if you like
+
+* [fzf](https://github.com/junegunn/fzf#fuzzy-completion-for-bash-and-zsh)
+
+    * [MacOS](https://github.com/junegunn/fzf#using-homebrew): 
+
+        ```zsh
+        brew install fzf
+        # To install useful key bindings and fuzzy completion:
+        $(brew --prefix)/opt/fzf/install
+        ```
+
+    * [Arch](https://github.com/junegunn/fzf#using-linux-package-managers): `sudo pacman -S fzf`
+
+    * [Fedora](https://github.com/junegunn/fzf#using-homebrew): `sudo dnf install fzf`
+
+    Copy `fzf` configuration prepared 
+
+    ```zsh
     ```
 
     
 
-* fzf
-
-    * [fzf git repo](https://github.com/junegunn/fzf#fuzzy-completion-for-bash-and-zsh)
-
-        `sudo pacman -S fzf`
-
-    * Copy fzf configuration prepared
-
-        `cp dotfiles/zsh/fzf.zsh ~/.config/zsh/`
-
-    * change keybindings and completion sourcing files in zshrc
+    change keybindings and completion sourcing files in zshrc
 
     
 
