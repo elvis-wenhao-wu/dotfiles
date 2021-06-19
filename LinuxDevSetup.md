@@ -11,7 +11,7 @@
 Check and install the latest [git](https://git-scm.com/download/linux)
 
 - Arch: `pacman -S git`
-- Fedora: `dnf install git`
+- Fedora: `dnf install git`
 - Debian/Ubuntu: `apt-get install git`
 
 Config
@@ -48,22 +48,22 @@ Config
 
     Display special characters in oh-my-zsh
 
-    * [MacOS](https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts): 
+    * [MacOS](https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts):
 
-        ``````zsh
+    ```zsh
     brew tap homebrew/cask-fonts
-        brew install --cask font-hack-nerd-font
-        cd ~/Library/Fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
-        ``````
+    brew install --cask font-hack-nerd-font
+    cd ~/Library/Fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+    ```
     
     * [Linux](https://github.com/ryanoasis/nerd-fonts#option-6-ad-hoc-curl-download): 
     
-    Note: Under this method, the font will be automatically activated
+        Note: Under this method, the font will be automatically activated
     
     ```zsh
-        mkdir -p ~/.local/share/fonts
+    mkdir -p ~/.local/share/fonts
     cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
-        ```
+    ```
 
 * [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh#manual-installation)
 
@@ -131,7 +131,7 @@ Config
 
 * [Miniconda](https://docs.conda.io/en/latest/miniconda.html#linux-installers) 
 
-    * MacOS: `curl https://repo.anaconda.com/miniconda/Miniconda3-py39_4.9.2-MacOSX-x86_64.sh -o miniconda3.sh`
+    * MacOS: `curl https://repo.anaconda.com/miniconda/Miniconda3-py39_4.9.2-MacOSX-x86_64.sh -o miniconda3.sh`
     * Linux: `curl https://repo.anaconda.com/miniconda/Miniconda3-py39_4.9.2-Linux-x86_64.sh -o miniconda3.sh`
 
     ```zsh
@@ -162,9 +162,9 @@ Config
 
 * Python (optional)
 
-    * MacOS: `brew install python3` (avoid messing the packages with system default)
+    * MacOS: `brew install python3` (avoid messing the packages with system default)
 
-    * Linux: Linux normally shipped with python3 as default. Update it with package manager, e.g. `dnf upgrade python`
+    * Linux: Linux normally shipped with python3 as default. Update it with package manager, e.g. `dnf upgrade python`
 
 * Node (optional)
 
@@ -287,7 +287,7 @@ Config
 
 * [fd](https://github.com/sharkdp/fd)
 
-    Better alternative to Unix `find` (also for lf & fzf preview)
+    Better alternative to Unix `find` (also for lf & fzf preview)
 
     * [MacOS](https://github.com/sharkdp/fd#on-macos): `brew install fd`
 
@@ -329,7 +329,7 @@ Config
     source ~/.zshrc
     ```
 
-    Change keybindings at the very bottom in `~/.config/lf/lfrc` if you like
+    Change keybindings at the very bottom in `~/.config/lf/lfrc` if you like
 
 * [fzf](https://github.com/junegunn/fzf#fuzzy-completion-for-bash-and-zsh)
 
@@ -427,7 +427,7 @@ Config
         * If `Jedi module not found issue occur`, conda update and specify jedi path according to this [issue](https://github.com/neoclide/coc-python/issues/40)
         * If you couldn't set linter off, run :CocCommand and choose set linter to the linter you want
 
-    * Update `bracey` (optional)
+    * Update `bracey` (optional)
 
         The following commands are detailed in `~/.config/nvim/plug-config`
 
@@ -444,9 +444,9 @@ Config
 * Package Manager: 
     * MacOS: `brew cleanup`
     * Arch: `pacman -Sc`
-    * Fedora: `dnf clean all`
+    * Fedora: `dnf clean all`
 
-* Manually remove unnecessary files in home directory: `rm -r dotfiles`
+* Manually remove unnecessary files in home directory: `rm -r dotfiles`
 
 
 
