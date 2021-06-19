@@ -116,6 +116,7 @@ let g:python3_host_prog = '/usr/local/Caskroom/miniconda/base/envs/primary/bin/p
 
 " node mapping
 let g:node_host_prog = '/usr/local/bin/neovim-node-host'
+" don't need to change this for linux (should be in the same position)
 
 " disable perl support
 let g:loaded_perl_provider = 0

@@ -12,9 +12,9 @@
 
     // python config
     "python.setInterpreter": "/usr/local/Caskroom/miniconda/base/envs/primary/bin/python",
-    // "python.setInterpreter": ".conda/envs/primary/bin/python",
+    // "python.setInterpreter": "$HOME/.conda/envs/primary/bin/python",
     "python.pythonPath": "/usr/local/Caskroom/miniconda/base/envs/primary/bin/python",
-    // "python.pythonPath": ".conda/envs/primary/bin/python",
+    // "python.pythonPath": "$HOME/.conda/envs/primary/bin/python",
 
     // "python.condaPath": "/usr/local/Caskroom/miniconda/base/condabin/conda",
     // "python.linting.enabled": false,
@@ -23,7 +23,7 @@
     // "python.linting.mypyEnabled": true,
     // "python.linting.mypyPath": "/usr/local/Caskroom/miniconda/base/envs/primary/bin/mypy", 
     // "python.jediEnabled": false,
-    // "python.jediPath": "/usr/local/Caskroom/miniconda/base/envs/primary/lib/python3.9/site-packages",
+    "python.jediPath": "/usr/local/Caskroom/miniconda/base/envs/primary/lib/python3.9/site-packages",
     // "python.analysis.diagnosticEnabled": false,
 
     // html

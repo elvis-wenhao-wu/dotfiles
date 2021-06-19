@@ -207,7 +207,7 @@ Config
         conda activate primary # my conda environment
         conda install pynvim # conda python support for neovim
         # node support
-        npm i -g neovim
+        npm install -g neovim
         # neovim remote
         pip3 install neovim-remote
         # Note: For Neovim Remote, if conda env is not used to pip3 here, this will install `nvr` to `~/.local/bin` so you will need to add the following to zshrc
@@ -230,7 +230,7 @@ Config
         pacman -S python-pynvim # system python support for neovim
         conda install pynvim # conda python support for neovim
         # node support
-        npm i -g neovim
+        npm install -g neovim
         # neovim remote
         pip3 install neovim-remote
         # Note: For Neovim Remote, if conda env is not used to pip3 here, this will install `nvr` to `~/.local/bin` so you will need to add the following to zshrc
@@ -395,57 +395,58 @@ Config
     nvim ~/.config/nvim/vim-plug/plugins.vim # ignore the theme not in folder error, this will be fixed after you install the theme
     ```
 
-* other neovim configs
+* other neovim configs & neovim extensions configs
 
     ```zsh
+    # double check your python and node location
+    which python
+    which node
     # python and node source
     vim ~/.config/nvim/keys/mappings.vim # uncomment out linux source of python, comment out the mac version
     # coc settings
     vim ~/.config/nvim/coc-settings.json # uncomment out linux source of python, comment out the mac version
     ```
 
-    
+    In neovim,
 
-    
+    * Update far: 
 
+        `:RemoteUpdatePlugins `
 
+    * Coc extensions 
 
-* PlugInstall nvim plugins
-
-    * Copy plugins folder prepared
-
-        `cp -r dotfiles/nvim/ ~/.config/`
-
-    * Specify python & node path in keys/mappings
-
-    * [vim-plug](https://github.com/junegunn/vim-plug)
-
+        ```neovim
+        :CocInstall coc-python
+        :CocInstall coc-vimlsp
+        :CocInstall coc-html
+        :CocInstall coc-css
+        :CocInstall coc-tsserver
+        :CocInstall coc-fzf-preview
         ```
-        sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-               https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-        ```
-
-    * PlugInstall
-
-    * Update far `:UpdateRemotePlugins`
-
-    * Coc install extensions (coc-python, coc-vimlsp, coc-html, coc-css, coc-tsserver)
 
         * If `Jedi module not found issue occur`, conda update and specify jedi path according to this [issue](https://github.com/neoclide/coc-python/issues/40)
-
         * If you couldn't set linter off, run :CocCommand and choose set linter to the linter you want
 
-    * Configure bracey (require npm)
+    * Update `bracey` (optional)
 
-        * Open bracey.vim and following the instructions in the comments
+        The following commands are detailed in `~/.config/nvim/plug-config`
 
-* Check neovim health 
+        ```zsh
+        cd ~/.config/nvim/autoload/plugged/bracey.vim
+        npm install --prefix server # install local package
+        ```
 
-* Cleanup
+## Clean up
 
-    * `source ~/.zshrc`
-    * remove unnecessary files in home directory
-    * `sudo pacman -Sc`
+* Neovim: Check neovim health `:checkhealth` and fix anything not working there (except clipboard should not work in ssh mode without a display)
+* Zsh: Source the latest change `source ~/.zshrc`
+* Conda: `conda activate primary; conda clean --all` and do the same thing for your other environment
+* Package Manager: 
+    * MacOS: `brew cleanup`
+    * Arch: `pacman -Sc`
+    * Fedora: `dnf clean all`
+
+* Manually remove unnecessary files in home directory: `rm -r dotfiles`
 
 ## Multiplexer and Terminal
 
