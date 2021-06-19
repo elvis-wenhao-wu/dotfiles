@@ -1,4 +1,4 @@
-# Guide to install nvim
+# MacOS/Linux Dev Setup
 
 ## Prerequsite
 
@@ -448,9 +448,27 @@ Config
 
 * Manually remove unnecessary files in home directory: `rm -r dotfiles`
 
-## Multiplexer and Terminal
 
-* Install tmux (& vim-tmux-navigator)
 
-* Install alacritty
+## Tmux
+
+* Fedora
+
+    ```zsh
+    dnf install tmux
+    cp ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
+    vim ~/.config/zsh/apps.zsh # uncomment out tmux config
+    ```
+
+    [Further configurations about distinguishing local and nested remote tmux sessions](https://www.freecodecamp.org/news/tmux-in-practice-local-and-nested-remote-tmux-sessions-4f7ba5db8795/) (I'm not gonna touch this now cause I don't have this need)
+
+    Also note that [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator) have been installed on `neovim` side and already configured on `tmux` side by scripting
+
+    
+
+## Alacritty
+
+* [alacritty](https://github.com/alacritty/alacritty)
+
+    Note that I have this config file when the version of alacritty is 0.6. Some default configs have been changed in the newer version of alacritty. However, I recently upgraded its version to 0.8. it's still working great on MacOS.
 
