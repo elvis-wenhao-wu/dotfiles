@@ -1,6 +1,7 @@
 {
     // For documentation on doHover in coc
     "coc.preferences.hoverTarget": "float", 
+    "signature.preferShownAbove": false,
 
     // coc extension enable for each file type
     // "coc.source.json.filetypes": ["json"],

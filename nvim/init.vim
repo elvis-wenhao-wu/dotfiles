@@ -22,7 +22,7 @@ source $HOME/.config/nvim/plug-config/lf.vim
 
 " FIND & SEARCH
 " Better find and replace
-source $HOME/.config/nvim/plug-config/ripgrep.vim
+" source $HOME/.config/nvim/plug-config/ripgrep.vim
 source $HOME/.config/nvim/plug-config/far.vim
 " DiffChanges
 " source $HOME/.config/nvim/plug-config/vim-diffchanges.vim

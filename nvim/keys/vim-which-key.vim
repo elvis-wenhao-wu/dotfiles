@@ -77,23 +77,25 @@ let g:which_key_map.b = {
 " f is for find and replace
 let g:which_key_map.f = {
       \ 'name' : '+find & replace' ,
-      \ 'b' : [':BLines'                , 'find codes (%)'],
-      \ 'B' : [':Buffers'               , 'find buffernames (all)'],
+      \ 'b' : [':BLines'                , 'find buffers -> float'],
+      \ 'B' : [':Buffers'               , 'buffers'],
       \ 'c' : [':BCommits'              , 'commits (%)'],
-      \ 'C' : [':Commits'               , 'commits (log)'],
-      \ 'f' : [':Farf --source=vimgrep' , 'codes (%)'],
-      \ 'F' : [':Files'                 , 'find filenames (pwd)'],
+      \ 'C' : [':Commits'               , 'commits (buffers)'],
+      \ 'f' : [':Farf --source=vimgrep' , 'find codes (%) -> tab'],
+      \ 'F' : [':Lines'                 , 'find codes (%) -> float'] ,
       \ 'g' : [':GFiles'                , 'git ls-files'],
       \ 'G' : [':GFiles?'               , 'git status'],
       \ 'h' : [':History'               , 'history of files modified'],
       \ 'H' : [':History:'              , 'history of commands'],
-      \ 'l' : [':Lines'                 , 'find codes (pwd)'] ,
+      \ 'l' : [':Files'                 , 'files search'],
       \ 'L' : [':Lf'                    , 'LF'] ,
-      \ 'm' : [':Maps'                  , 'key maps'] ,
-      \ 'r' : [':Farr --source=rgnvim'  , 'replace codes (ripgrep)'],
-      \ 'R' : [':Rg'                    , 'find codes (ripgrep)'],
-      \ 't' : [':Filetypes'             , 'types (files)'],
+      \ 'm' : [':Maps'                  , 'mappings of keys'] ,
+      \ 'r' : [':Farr --source=rgnvim'  , 'replace codes (%) -> tab'],
+      \ 't' : [':Filetypes'             , 'types of files changed (%)'],
+      \ 'y' : [':Fardo'                 , 'replacement confirmed'],
       \ }
+" Other options that I've used before
+" 'R' : [':Rg'                    , 'find codes (%)'],
 
 " F is for formatting
 let g:which_key_map.F = {
@@ -121,7 +123,7 @@ let g:which_key_map.S = {
 
 " t is for terminal
 let g:which_key_map.t = {
-      \ 'name' : '+terminal' ,
+      \ 'name' : '+terminal',
       \ 'c' : 'clear',
       \ 'f' : 'file',
       \ 'g' : 'toggle',
@@ -130,7 +132,7 @@ let g:which_key_map.t = {
       \ 's' : 'selection',
       \ 't' : 'line',
       \ 'w' : 'close', 
-      \ 'v' : 'new (vertical)'
+      \ 'v' : 'new (vertical)',
       \ }
       " \ 's' : [":TREPLSendSelection'>j"         , 'selection'],
 

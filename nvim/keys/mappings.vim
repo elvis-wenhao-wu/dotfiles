@@ -48,14 +48,14 @@ endfunction
 " H, J, K, L for stronger movement of their lowercase counterpart
 " refer to recursive/non-recursive mapping concept in the link below
 " https://stackoverflow.com/questions/3776117/what-is-the-difference-between-the-remap-noremap-nnoremap-and-vnoremap-mapping
-nnoremap J L
-nnoremap K H
-nnoremap H 0
-nnoremap L $
-vnoremap J L
-vnoremap K H
-vnoremap H 0
-vnoremap L $
+" nnoremap J L
+" nnoremap K H
+" nnoremap H ^
+" nnoremap L g_
+" vnoremap J L
+" vnoremap K H
+" vnoremap H ^
+" vnoremap L g_
 
 " TAB in general mode will move to next buffer
 nnoremap <silent> <TAB> :bnext<CR>

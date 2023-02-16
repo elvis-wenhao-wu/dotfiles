@@ -36,8 +36,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release/remote', 'do': ':UpdateRemotePlugins' }
     Plug 'junegunn/fzf.vim'
     " Find and replace
-    Plug 'ChristianChiarulli/far.vim'
-    Plug 'jremmen/vim-ripgrep'
+    " Plug 'ChristianChiarulli/far.vim'
+    Plug 'brooth/far.vim'
+    " Plug 'jremmen/vim-ripgrep'
     " Diff
     Plug 'jmcantrell/vim-diffchanges'
 

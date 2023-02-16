@@ -6,3 +6,6 @@
 [ -f $HOME/.config/zsh/usrsp.zsh ] && source $HOME/.config/zsh/usrsp.zsh
 [ -f $HOME/.config/zsh/aliases.zsh ] && source $HOME/.config/zsh/aliases.zsh
 
+# Homebrew git download
+export HOMEBREW_GITHUB_API_TOKEN=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
+
