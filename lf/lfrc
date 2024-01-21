@@ -4,8 +4,8 @@
 set shell zsh
 
 # Basic Settings
-set drawbox on
-set ignorecase on
+set drawbox true
+set ignorecase true
 
 # Preview script
 set previewer "~/.config/lf/scope.sh"
@@ -45,7 +45,7 @@ map X !$f
 # use either file extensions and/or mime types here. Below uses an editor for
 # text files and a file opener for the rest.
 cmd open ${{
-    case $(file --mime-type $f -b) in
+    case $(file --mime-type -Lb $f) in
         inode/x-empty) $EDITOR $fx;;
         text/*) $EDITOR $fx;;
         video/*) nohup mpv $fx > /dev/null & ;;
