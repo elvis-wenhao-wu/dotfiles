@@ -52,8 +52,7 @@ Config
 
     ```zsh
     brew tap homebrew/cask-fonts
-    brew install --cask font-hack-nerd-font
-    cd ~/Library/Fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+    brew install --cask font-meslo-lg-nerd-font
     ```
     
     * [Linux](https://github.com/ryanoasis/nerd-fonts#option-6-ad-hoc-curl-download): 
