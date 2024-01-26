@@ -61,61 +61,57 @@ bindings = [
 [keyboard]
 bindings = [
 	# tested
-	{ key = "Delete",      mods = "Alt",             chars  = "\u001bD"           },  
-	{ key = "Back",        mods = "Super",           chars  = "\u0015"            }, 
-	{ key = "Left",        mods = "Alt",             chars  = "\u001B[b"           },
-	{ key = "Right",       mods = "Alt",             chars  = "\u001B[f"           },
+	{ key = "Delete",        mods = "Alt",             chars  = "\u001bD"           },  
+	{ key = "Back",          mods = "Super",           chars  = "\u0015"            }, 
+	{ key = "Left",          mods = "Alt",             chars  = "\u001Bb"           }, # move the cursor to a word left
+	{ key = "Right",         mods = "Alt",             chars = "\u001Bf"            }, # move the cursor to a word right
 
 	# (macOS only)
-	{ key = "Left",        mods = "Command",          chars = "\u001bOH",    mode = "~AppCursor" },
-	{ key = "Right",       mods = "Command",          chars = "\u001bOF",    mode = "~AppCursor" },
-	# { key = "Left",        mods = "Command",          chars = "\u001bOH",    mode = "AppCursor"  },
-	# { key = "Right",       mods = "Command",          chars = "\u001bOF",    mode = "AppCursor"  },
+	{ key = "Left",          mods = "Command",         chars = "\u001bOH",    mode = "AppCursor"   },
+	{ key = "Right",         mods = "Command",         chars = "\u001bOF",    mode = "AppCursor"   },
+	# { key = "Left",        mods = "Command",         chars = "\u001bOH",    mode = "~AppCursor"  },
+	# { key = "Right",       mods = "Command",         chars = "\u001bOF",    mode = "~AppCursor"  },
 	# # see example alacritty.yml. keys are from https://docs.rs/glutin/*/glutin/event/enum.VirtualKeyCode.html#variants
-	# { key = "S",           mods = "Command",          mode = "Vi",          chars = "\u0013"    },
-	# { key = "A",           mods = "Command",          mode = "Vi",          chars = "\u0001"    },
+	# { key = "S",           mods = "Command",         mode = "Vi",           chars = "\u0013"     },
+	# { key = "A",           mods = "Command",         mode = "Vi",           chars = "\u0001"     },
 
 	# Vi Mode
-	{ key = "Slash",       mods = "Control",          mode = "~Vi",          chars = "++"      },
-	# { key = "L",           mods = "Control",          mode = "~Vi",          chars = "\u000c"    },
+	{ key = "Slash",         mods = "Control",         mode = "~Vi",          chars = "++"         },
+	# { key = "L",           mods = "Control",         mode = "~Vi",          chars = "\u000c"     },
 
 	# deprecated/invalid key bindings in latest alacritty
-	# { key = "Q",           mods = "Control",         chars  = "\u0011"            } # deprecated
+	# { key = "Q",           mods = "Control",         chars  = "\u0011"           } # deprecated
 	# { key = "Apostrophe",  mods = "Alt",             chars = "\u001B'"           },
 	# { key = "Apostrophe",  mods = "Alt|Shift",       chars = "\u001B\""          },
 	# { key = "Grave",       mods = "Alt",             chars = "\u001B`"           },
 	# { key = "Grave",       mods = "Alt|Shift",       chars = "\u001B~"           },
 
 	# needs to be tested
-	# { key = "Left",        mods = "Alt|Shift",       chars  = "\u001B\u001B[D"      },
-	# { key = "Right",       mods = "Alt|Shift",       chars  = "\u001B\u001B[C"      },
+	# { key = "Left",        mods = "Alt|Shift",       chars  = "\u001B\u001B[D"   },
+	# { key = "Right",       mods = "Alt|Shift",       chars  = "\u001B\u001B[C"   },
 	# { key = "PageUp",                                action = "ScrollPageUp"     },
 	# { key = "PageUp",      mode = "Alt",             chars = "\u001B[5~"         },
 	# { key = "PageUp",      mods = "Shift",           chars = "\u001B[5~"         },
-	# { key = "PageDown",                           action = "ScrollPageDown"   },
+	# { key = "PageDown",                              action = "ScrollPageDown"   },
 	# { key = "PageDown",    mode = "Alt",             chars = "\u001B[6~"         },
 	# { key = "PageDown",    mods = "Shift",           chars = "\u001B[6~"         },
-	# { key = "Home",                               action = "ScrollToTop"      },
+	# { key = "Home",                                  action = "ScrollToTop"      },
 	# { key = "Home",        mode = "Alt",             chars = "\u001BOH"          },
 	# { key = "Home",        mods = "Shift",           chars = "\u001B[H"          },
-	# { key = "End",                                action = "ScrollToBottom"   },
+	# { key = "End",                                   action = "ScrollToBottom"   },
 	# { key = "End",         mode = "Alt",             chars = "\u001BOF"          },
 	# { key = "End",         mods = "Shift",           chars = "\u001B[F"          },
 	# { key = "Tab",         mods = "Alt",             chars = "\u001B\t"          },
-	# { key = "Tab",         mods = "Alt|Shift",       chars = "\u001B\u001B[Z"      },
-	# { key = "Back",                               chars = "\u007F"            },
-	# { key = "Back",        mods = "Alt",             chars = "\u001B\u007F"        },
-	# { key = "Back",        mods = "Alt|Shift",       chars = "\u001B\u0008"        },
+	# { key = "Tab",         mods = "Alt|Shift",       chars = "\u001B\u001B[Z"    },
+	# { key = "Back",                                  chars = "\u007F"            },
+	# { key = "Back",        mods = "Alt",             chars = "\u001B\u007F"      },
+	# { key = "Back",        mods = "Alt|Shift",       chars = "\u001B\u0008"      },
 	# { key = "Space",       mods = "Control",         chars = "\u0000"            },
 	# { key = "Space",       mods = "Alt",             chars = "\u0020"            },
-	# { key = "Left",        mods = "Alt",             chars = "\u001Bb"           },
-	# { key = "Left",        mods = "Alt|Shift",       chars = "\u001B\u001B[D"      },
-	# { key = "Right",       mods = "Alt",             chars = "\u001Bf"           },
-	# { key = "Right",       mods = "Alt|Shift",       chars = "\u001B\u001B[C"      },
-	# { key = "Down",        mods = "Alt",             chars = "\u001B\u001B[B"      },
-	# { key = "Down",        mods = "Alt|Shift",       chars = "\u001B\u001B[B"      },
-	# { key = "Up",          mods = "Alt",             chars = "\u001B\u001B[A"      },
-	# { key = "Up",          mods = "Alt|Shift",       chars = "\u001B\u001B[A"      },
+	# { key = "Down",        mods = "Alt",             chars = "\u001B\u001B[B"    },
+	# { key = "Down",        mods = "Alt|Shift",       chars = "\u001B\u001B[B"    },
+	# { key = "Up",          mods = "Alt",             chars = "\u001B\u001B[A"    },
+	# { key = "Up",          mods = "Alt|Shift",       chars = "\u001B\u001B[A"    },
 	# { key = "A",           mods = "Alt",             chars = "\u001Ba"           },
 	# { key = "A",           mods = "Alt|Shift",       chars = "\u001BA"           },
 	# { key = "B",           mods = "Alt",             chars = "\u001Bb"           },
