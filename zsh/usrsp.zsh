@@ -9,9 +9,9 @@ else
 fi
 
 # Help directory for alias
-HELPDIR=/usr/share/zsh/5.8.1/help/
-# if [ -d /usr/share/zsh/5.8.1/help/ ]; then
-#     HELPDIR=/usr/share/zsh/5.8.1/help/;
+HELPDIR=/usr/share/zsh/*/help/
+# if [ -d /usr/share/zsh/*/help/ ]; then
+#     HELPDIR=/usr/share/zsh/*/help/;
 # else
 #     HELPDIR=$(find /usr/share/zsh -type d -maxdepth 2 | grep 'help');
 # fi
