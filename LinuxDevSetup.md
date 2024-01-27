@@ -154,7 +154,8 @@ Config
     conda activate base; conda update -n base -c defaults conda
     conda clean --all # cleanup mess
     # Create an environment with a specific version of Python
-    conda create --name primary python=3.9.5
+    conda create --name util python=3.11
+    conda create --name primary python=3.11
     conda activate primary # check if the environment works
     conda config --show channels # check your channels (conda-forge is on top, which is a better channel I think)
     ```
@@ -203,12 +204,12 @@ Config
 
         ```zsh
         # python support
-        conda activate primary # my conda environment
+        conda activate util # my conda environment
         conda install pynvim # conda python support for neovim
         # node support
         npm install -g neovim
         # neovim remote
-        pip3 install neovim-remote
+        pip install neovim-remote
         # Note: For Neovim Remote, if conda env is not used to pip3 here, this will install `nvr` to `~/.local/bin` so you will need to add the following to zshrc
         # `export PATH=$HOME/.local/bin:$PATH`
         ```
