@@ -6,21 +6,7 @@ if [ -f "$LFCD" ]; then
 fi
 bindkey -s '^n' 'lfcd\n'
 
-# FZF
-# shortcuts
-source /usr/local/opt/fzf/shell/key-bindings.zsh
-# source /usr/share/fzf/shell/key-bindings.zsh # for linux
-source /usr/local/opt/fzf/shell/completion.zsh
-# source /usr/share/fzf/shell/completion.zsh # for linux
-
-export FZF_DEFAULT_OPTS="
---no-mouse --height 50% -1 --reverse --multi --inline-info 
---preview='[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file \
-|| (bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -300' 
---preview-window='right:hidden:wrap'
---bind='f3:execute(bat --style=numbers {} || less -f {}),f2:toggle-preview,ctrl-y:execute-silent(echo {+} | pbcopy)'"
-export FZF_DEFAULT_COMMAND="fd --type f --type l --follow --exclude .git --exclude node_modules"
-export FZF_CTRL_T_COMMAND='git ls-files "$(git rev-parse --show-toplevel)"'
+# BAT
 export BAT_PAGER="less -R"
 
 # TMUX 
@@ -28,4 +14,7 @@ export BAT_PAGER="less -R"
 export TERM=xterm-256color
 # just refer to this post: # http://www.economyofeffort.com/2014/07/04/zsh/ 
 [ -n "$TMUX" ] && export TERM=screen-256color 
+
+# Curl
+[[ -x "/opt/homebrew/opt/curl/bin/curl" ]] && alias curl=/opt/homebrew/opt/curl/bin/curl
 
