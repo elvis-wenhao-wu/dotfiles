@@ -29,5 +29,3 @@ export TERM=xterm-256color
 # just refer to this post: # http://www.economyofeffort.com/2014/07/04/zsh/ 
 [ -n "$TMUX" ] && export TERM=screen-256color 
 
-# BYOBU 
-# export BYOBU_PREFIX=/usr/local
