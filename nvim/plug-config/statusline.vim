@@ -8,5 +8,3 @@ set statusline+=\ ☰
 set statusline+=\ %l/%L 
 set statusline+=\ col:
 set statusline+=%2c
-
-
