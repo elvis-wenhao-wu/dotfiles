@@ -1,5 +1,5 @@
 " The below setting comes from https://github.com/ChristianChiarulli/nvim/blob/master/general/settings.vim
-set iskeyword+=-                        " treat dash separated words as a word text object
+set iskeyword+=-                        " Treat dash separated words as a word text object
 set formatoptions-=cro                  " Stop newline continution of comments
 
 " syntax off                            " Avoid syncolor.vim sourced multiple times
@@ -26,7 +26,7 @@ set laststatus=2                        " Always display the status line
 set number                              " Line numbers
 set relativenumber
 " set cursorline                        " Enable highlighting of the current line
-set background=dark                     " tell vim what the background color looks like
+set background=dark                     " Tell vim what the background color looks like
 " set termguicolors                     " To display web icon for lua tree
 set showtabline=1                       " 2: Always show tabs, 1: Show tabs when more than 1 tab
 set noshowmode                          " We don't need to see things like -- INSERT -- anymore
@@ -35,8 +35,8 @@ set nobackup                            " This is recommended by coc
 set nowritebackup                       " This is recommended by coc
 set noswapfile
 set shortmess+=c                        " Don't pass messages to ins-completion-menu
-" set signcolumn=yes                      " Always show the signcolumn, otherwise it would shift the text each time
-set signcolumn=no                      " Always not show the signcolumn, it would shift the text each time
+" set signcolumn=yes                    " Always show the signcolumn, otherwise it would shift the text each time
+set signcolumn=no                       " Always not show the signcolumn, it would shift the text each time
 set synmaxcol=120                       " only syntax highlighting for 120 characters width
 set regexpengine=1                      " 1 for old engine, and default 0 for either 1 or 2 NFA
 set updatetime=300                      " Faster completion
@@ -45,7 +45,7 @@ set timeoutlen=100                      " By default timeoutlen is 1000 ms
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 set incsearch
 set hlsearch
-set foldmethod=manual                   " set folding method
+set foldmethod=manual                   " Set folding method
 set smartcase
 set ignorecase
 " speed

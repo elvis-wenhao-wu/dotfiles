@@ -1,5 +1,4 @@
-" This plugin should've copied from https://github.com/jdhao/minimal_vim/blob/master/init.vim
-" statusline
+" https://github.com/jdhao/minimal_vim/blob/master/init.vim
 set statusline+=\ %F
 set statusline+=%=
 set statusline+=\ %p  

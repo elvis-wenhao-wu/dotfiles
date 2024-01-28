@@ -1,50 +1,14 @@
-"  Basic Key Mappings
-imap <C-h> <C-w>h
-imap <C-j> <C-w>j
-imap <C-k> <C-w>k
-imap <C-l> <C-w>l
-
-" Better window navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
- 
-" Leader key
-" SEE this: https://www.reddit.com/r/vim/comments/2d2za5/question_about_having_spacebar_as_leader/
+" === CONTROL KEY ===
+" <Leader> key
+" https://www.reddit.com/r/vim/comments/2d2za5/question_about_having_spacebar_as_leader/
+" https://gist.github.com/benawad/b768f5a5bbd92c8baabd363b7e79786f
 let g:mapleader = "\<Space>"
 nnoremap <Space> <Nop>
-
-" File manipulation
-" cnoreabbrev ee e %:h
-
-" TEXT PROCESSING
-" Indentation
-vnoremap < <gv
-vnoremap > >gv
-" Uppercase
-" SEE this: https://vi.stackexchange.com/questions/5750/is-there-a-way-to-reselect-the-last-visual-shape-rather-than-the-last-actual-se
-" inoremap <leader>u <esc>gUiw`]a
-vnoremap <leader>u gUgV `[v`]
-nnoremap <leader>u gUiw
-
-" ESCAPE
-inoremap jk <Esc>
+" <Escape> key
 " tnoremap <Esc> jk
+inoremap jk <Esc>
 
-" <TAB>: completion.
-" copied from https://gist.github.com/benawad/b768f5a5bbd92c8baabd363b7e79786f
-inoremap <silent> <expr><TAB> 
-  \ pumvisible() ? "\<C-n>" : 
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" NAVIGATION
+" === NAVIGATION ===
 " H, J, K, L for stronger movement of their lowercase counterpart
 " refer to recursive/non-recursive mapping concept in the link below
 " https://stackoverflow.com/questions/3776117/what-is-the-difference-between-the-remap-noremap-nnoremap-and-vnoremap-mapping
@@ -56,26 +20,21 @@ endfunction
 " vnoremap K H
 " vnoremap H ^
 " vnoremap L g_
-
-" TAB in general mode will move to next buffer
+" Shift focus between windows
+imap <C-h> <C-w>h
+imap <C-j> <C-w>j
+imap <C-k> <C-w>k
+imap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+" Shift focus between buffers
 nnoremap <silent> <TAB> :bnext<CR>
-" SHIFT-TAB will go back
 nnoremap <silent> <S-TAB> :bprevious<CR>
-" CTRL-SHIFT-W will close the buffer
-nnoremap <silent> <C-q> :bdelete!<CR>
-" CTRL-S save file
-nnoremap <silent> <C-s> :w<CR>
-vnoremap <silent> <C-s> <ESC>:w<CR>
-inoremap <silent> <C-s> <ESC>:w<CR>
-" CTRL-A select all
-nnoremap <silent> <C-a> ggVG
-vnoremap <silent> <C-a> <ESC>ggVG
-inoremap <silent> <C-a> <ESC>ggVG
-" CTRL-TAB in general mode will move to next tab
+" Shift focus between tabs
 " nnoremap <silent> <leader>n :tabnext<CR>
-" CTRL-SHIFT-TAB will go back
 " nnoremap <silent> <leader>N :tabNext<CR>
-
 " Terminal window navigation
 tnoremap <C-h> <C-\><C-N><C-w>h
 tnoremap <C-j> <C-\><C-N><C-w>j
@@ -86,40 +45,53 @@ inoremap <C-j> <C-\><C-N><C-w>j
 inoremap <C-k> <C-\><C-N><C-w>k
 inoremap <C-l> <C-\><C-N><C-w>l
 tnoremap <Esc> <C-\><C-n>
-            
-" Use <leader> -+ to resize windows
+
+" === FILE MANIPULATION ===
+" Open file in current directory
+" cnoreabbrev ee e %:h
+" Save file
+nnoremap <silent> <C-s> :w<CR>
+vnoremap <silent> <C-s> <ESC>:w<CR>
+inoremap <silent> <C-s> <ESC>:w<CR>
+" Close buffer: CTRL-SHIFT-W
+nnoremap <silent> <C-q> :bdelete!<CR>
+" Change window layout 
+nnoremap <silent> <leader>T <C-w>T
+nnoremap <silent> <leader>V <C-w>L
+nnoremap <silent> <leader>H <C-w>J
+" Resize window: <leader> -+ 
 " nnoremap <silent> <leader>- :resize -2<CR>
 " nnoremap <silent> <leader>+ :resize +2<CR>
 " nnoremap <silent> <leader>< :vertical resize -2<CR>
 " nnoremap <silent> <leader>> :vertical resize +2<CR>
 
-" Better nav for omnicomplete
-" inoremap <expr> <c-j> ("\<C-n>")
-" inoremap <expr> <c-k> ("\<C-p>")
+" === TEXT PROCESSING ===
+" Select all texts
+nnoremap <silent> <C-a> ggVG
+vnoremap <silent> <C-a> <ESC>ggVG
+inoremap <silent> <C-a> <ESC>ggVG
+" Indentation
+vnoremap < <gv
+vnoremap > >gv
+" Uppercase
+" https://vi.stackexchange.com/questions/5750/is-there-a-way-to-reselect-the-last-visual-shape-rather-than-the-last-actual-se
+" inoremap <leader>u <esc>gUiw`]a
+vnoremap <leader>u gUgV `[v`]
+nnoremap <leader>u gUiw
 
+" === EXTERNAL APPLICATIONS ===
+" Python3
+let g:loaded_python_provider = 0
+let g:python3_host_prog = '/Users/wwu/.conda/envs/util/bin/python'
+" Uncomment the followings for linux
+" let g:python3_host_prog = "$HOME/.conda/envs/util/bin/python"
+" Node
+let g:node_host_prog = '/opt/homebrew/bin/neovim-node-host'
+" Perl
+let g:loaded_perl_provider = 0
+" Ruby
+let g:loaded_ruby_provider = 0
+
+" === OTHERS ===
 " copy path, leader key, esc key and clipboard
 " nnoremap <silent> cpp :let @" = expand("%")<CR>
-
-" Change current split window to another layout
-" layout: tab
-nnoremap <silent> <leader>T <C-w>T
-" layout: vertical right
-nnoremap <silent> <leader>V <C-w>L
-" layout: horizontal below
-nnoremap <silent> <leader>H <C-w>J
-
-" python3 mapping
-let g:loaded_python_provider = 0
-let g:python3_host_prog = '/usr/local/Caskroom/miniconda/base/envs/primary/bin/python'
-" Uncomment the followings for linux
-" let g:python3_host_prog = "$HOME/.conda/envs/primary/bin/python"
-
-" node mapping
-let g:node_host_prog = '/usr/local/bin/neovim-node-host'
-" don't need to change this for linux (should be in the same position)
-
-" disable perl support
-let g:loaded_perl_provider = 0
-
-" disable ruby support
-let g:loaded_ruby_provider = 0
