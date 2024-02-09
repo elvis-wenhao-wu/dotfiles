@@ -15,7 +15,7 @@ source $HOME/.config/nvim/plug-config/statusline.vim
 
 " === FILE MANIPULATION ===
 source $HOME/.config/nvim/plug-config/lf.vim
-source $HOME/.config/nvim/plug-config/obsession.vim
+" source $HOME/.config/nvim/plug-config/obsession.vim
 " source $HOME/.config/nvim/plug-config/netrw.vim
 " source $HOME/.config/nvim/plug-config/nerdtree.vim
 " source $HOME/.config/nvim/plug-config/cocexplorer.vim

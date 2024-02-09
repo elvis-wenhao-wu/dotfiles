@@ -23,7 +23,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Rename
     Plug 'danro/rename.vim'
     " Session
-    Plug 'tpope/vim-obsession'
+    " Plug 'tpope/vim-obsession'
     " Plug 'ptzz/lf.vim'
     " Plug 'haorenW1025/floatLf-nvim'
     " Plug 'voldikss/vim-floaterm'
@@ -73,8 +73,17 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " === INTELLISENSE ===
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!', 'WhichKeyVisual', 'WhichKeyVisual!'] }   
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-path'
+    Plug 'hrsh7th/nvim-cmp'
+    Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
+    Plug 'saadparwaiz1/cmp_luasnip'
+    Plug 'L3MON4D3/LuaSnip'
+    " Plug 'williamboman/mason.nvim'
+    " Plug 'williamboman/mason-lspconfig.nvim'
     " Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-    " Plug 'neovim/nvim-lspconfig'
     " Plug 'nvim-lua/completion-nvim'
     " Plug 'nvim-lua/diagnostic-nvim'
 

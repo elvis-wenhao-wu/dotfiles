@@ -10,11 +10,9 @@
 
 Check and install the latest [git](https://git-scm.com/download/linux)
 
-- Arch: `pacman -S git`
-- Fedora: `dnf install git`
-- Debian/Ubuntu: `apt-get install git`
+* `brew install git`
 
-Config
+Configurations
 
 - `git config --global user.name "..."`
 
@@ -29,21 +27,13 @@ Config
 
 * [zshell](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
 
-    Better shell
-
     * MacOS: System Default
 
-    * Arch: `pacman -S zsh`
-    * Debian/Ubuntu: `apt install zsh`
-    * Fedora: `dnf install zsh`
-
-    Make it your default shell: `chsh -s $(which zsh)`
-
-    Log out and log back in again to use your new default shell
-
-    Test that it worked with `echo $SHELL`. Expected result: `/bin/zsh` or similar.
-
-    Test with `$SHELL --version`. Expected result: 'zsh 5.4.2' or similar
+    * Make it your default shell: `chsh -s $(which zsh)`
+      * Log out and log back in again to use your new default shell
+      * Test that it worked with `echo $SHELL`. Expected result: `/bin/zsh` or similar.
+      * Test with `$SHELL --version`. Expected result: 'zsh 5.4.2' or similar
+    
 * [MesloLGS NF font](https://github.com/ryanoasis/nerd-fonts) 
 
     Display special characters in oh-my-zsh
@@ -285,15 +275,6 @@ Config
     * [Arch](https://github.com/sharkdp/bat#on-arch-linux): `sudo pacman -S bat`
     * [Fedora](https://github.com/sharkdp/bat#on-fedora): `dnf install bat`
 
-* [fd](https://github.com/sharkdp/fd)
-
-    Better alternative to Unix `find` (also for lf & fzf preview)
-
-    * [MacOS](https://github.com/sharkdp/fd#on-macos): `brew install fd`
-
-    * [Arch](https://github.com/sharkdp/fd#on-arch-linux): `sudo pacman -S fd`
-    * [Fedora](https://github.com/sharkdp/fd#on-fedora): `dnf install fd-find`
-
 * [lf](https://github.com/gokcehan/lf)
 
     Terminal File Manager
@@ -331,55 +312,6 @@ Config
 
     Change keybindings at the very bottom in `~/.config/lf/lfrc` if you like
 
-* [fzf](https://github.com/junegunn/fzf#fuzzy-completion-for-bash-and-zsh)
-
-    * [MacOS](https://github.com/junegunn/fzf#using-homebrew): 
-
-        ```zsh
-        brew install fzf
-        # To install useful key bindings and fuzzy completion:
-        $(brew --prefix)/opt/fzf/install
-        ```
-
-    * [Arch](https://github.com/junegunn/fzf#using-linux-package-managers): `sudo pacman -S fzf`
-
-    * [Fedora](https://github.com/junegunn/fzf#using-homebrew): `sudo dnf install fzf`
-
-    (Linux Only) Copy `fzf` configuration prepared 
-
-    ```zsh
-    # Clean up mess
-    cd /usr/share/fzf
-    cp -r shell/ shell.orig/
-    rm -r shell/
-    git init
-    # Track repo
-    git remote add origin -f https://github.com/junegunn/fzf
-    # Enable the tree check feature
-    git config core.sparseCheckout true
-    # Add the name of the subdirectory into .git (the hidden git directory, controlling everything)
-    echo 'shell' >> .git/info/sparse-checkout
-    # Download with pull, not clone
-    git pull origin master
-    ```
-
-    Change the config in zsh
-
-    ```zsh
-    vim ~/.config/zsh/apps.zsh # uncomment out all fzf configs (uncomment out the first few lines depending on macos or linux)
-    source ~/.zshrc
-    ```
-
-    Reference about [git submodule](https://en.terminalroot.com.br/how-to-clone-only-a-subdirectory-with-git-or-svn/)
-
-* [ripgrep](https://github.com/BurntSushi/ripgrep)
-
-    * MacOS: `brew install ripgrep`
-    * Arch: `pacman -S ripgrep`
-    * Fedora: `sudo dnf install ripgrep`
-
-    
-
 ## Neovim Configuration
 
 * [vim-plug](https://github.com/junegunn/vim-plug#neovim)
@@ -408,24 +340,6 @@ Config
     ```
 
     In neovim,
-
-    * Update far: 
-
-        `:RemoteUpdatePlugins `
-
-    * Coc extensions 
-
-        ```neovim
-        :CocInstall coc-python
-        :CocInstall coc-vimlsp
-        :CocInstall coc-html
-        :CocInstall coc-css
-        :CocInstall coc-tsserver
-        :CocInstall coc-fzf-preview
-        ```
-
-        * If `Jedi module not found issue occur`, conda update and specify jedi path according to this [issue](https://github.com/neoclide/coc-python/issues/40)
-        * If you couldn't set linter off, run :CocCommand and choose set linter to the linter you want
 
     * Update `bracey` (optional)
 
