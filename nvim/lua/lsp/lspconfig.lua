@@ -30,6 +30,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', '<leader>k', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
     -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
     -- vim.keymap.set('n', '<space>f', function()
     --   vim.lsp.buf.format { async = true }
@@ -38,23 +39,36 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
--- copied from chatgpt
+-- Replace html tags with plain text, copied from chatgpt
 local function on_attach(client, bufnr)
     local orig_hover = vim.lsp.handlers["textDocument/hover"]
     vim.lsp.handlers["textDocument/hover"] = function(err, result, ctx, config)
-        -- Process result to replace HTML entities
         if result and result.contents then
-            -- Assuming result.contents is a MarkupContent or MarkedString
             if result.contents.kind and result.contents.kind == 'markdown' then
                 result.contents.value = result.contents.value:gsub('&nbsp;', ' ')
-                -- Add more gsub calls for other HTML entities as needed
             end
         end
         orig_hover(err, result, ctx, config)
     end
 
-    -- Similar override for 'textDocument/completionItem/resolve'
-    -- if your LSP client uses this for additional documentation
+    local orig_signature_help = vim.lsp.handlers["textDocument/signatureHelp"]
+    vim.lsp.handlers["textDocument/signatureHelp"] = function(err, result, ctx, config)
+        if result and result.signatures then
+            for _, signature in ipairs(result.signatures) do
+                if signature.documentation and signature.documentation.kind == 'markdown' then
+                    signature.documentation.value = signature.documentation.value:gsub('&nbsp;', ' ')
+                end
+                if signature.parameters then
+                    for _, parameter in ipairs(signature.parameters) do
+                        if parameter.documentation and parameter.documentation.kind == 'markdown' then
+                            parameter.documentation.value = parameter.documentation.value:gsub('&nbsp;', ' ')
+                        end
+                    end
+                end
+            end
+        end
+        orig_signature_help(err, result, ctx, config)
+    end
 end
 
 -- Add additional capabilities supported by nvim-cmp

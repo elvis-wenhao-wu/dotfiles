@@ -24,6 +24,8 @@ let g:which_key_max_size = 0
 let g:which_key_map = {}
 " Define a separator
 let g:which_key_sep = '→'
+" Sort all which-key items alphabetically in spite of their type.
+let g:which_key_group_dicts = ''
 
 " === MAPPINGS ===
 " Principle: only add semantics here. Separate remaps sitting in plugins
@@ -36,11 +38,12 @@ let g:which_key_sep = '→'
 "       \ 's' : [":TREPLSendSelection'>j"         , 'selection'],
 "       \ }
 " Single Keystroke Mapping:
+let g:which_key_map.k = 'signature popup'
 let g:which_key_map.u = 'uppercase'
 let g:which_key_map.z = 'zoom vim'
-let g:which_key_map.H = 'pivot below'
-let g:which_key_map.T = 'pivot in tab'
-let g:which_key_map.V = 'pivot right'
+let g:which_key_map.H = 'pivot horizontally'
+let g:which_key_map.T = 'pivot tab'
+let g:which_key_map.V = 'pivot vertically'
 " Double Keystroke Mapping:
 " a: actions
 let g:which_key_map.a = {
@@ -50,25 +53,25 @@ let g:which_key_map.a = {
       \ }
 " b: buffers
 let g:which_key_map.b = {
-      \ 'name' : '+bclose' ,
-      \ 'd' : [':Bclose'  , 'close current buffer']
+      \ 'name' : '+buffers' ,
+      \ 'b' : [':buffers' , 'list buffers'],
+      \ 'd' : [':Bclose'  , 'close current buffer'],
+      \ 'f' : [':files'   , 'list files']
       \ }
-" f: find and replace
-let g:which_key_map.f = {
-      \ 'name' : '+find & replace' ,
-      \ 'B' : [':buffers'               , 'buffers'],
-      \ 'h' : [':history'               , 'history of files modified'],
-      \ 'H' : [':history:'              , 'history of commands'],
-      \ 'l' : [':files'                 , 'files search'],
-      \ }
-" S is for session
-let g:which_key_map.S = {
-      \ 'name' : '+sessions' ,
-      \ 'a' : 'add workspace',
-      \ 'd' : 'delete workspace', 
-      \ 'k' : 'configure neovim keys',
-      \ 'o' : 'open workspace',
-      \ 's' : 'stop/resume workspace',
-      \ 'S' : 'configure neovim settings',
-      \ }
+" " f: find and replace
+" let g:which_key_map.f = {
+"       \ 'name' : '+find & replace' ,
+"       \ 'B' : ['<Cmd>buffers<CR>'               , 'buffers'],
+"       \ 'h' : ['<Cmd>history<CR>'               , 'history of files modified'],
+"       \ }
+" " S is for session
+" let g:which_key_map.S = {
+"       \ 'name' : '+sessions' ,
+"       \ 'a' : 'add workspace',
+"       \ 'd' : 'delete workspace', 
+"       \ 'k' : 'configure neovim keys',
+"       \ 'o' : 'open workspace',
+"       \ 's' : 'stop/resume workspace',
+"       \ 'S' : 'configure neovim settings',
+"       \ }
 
